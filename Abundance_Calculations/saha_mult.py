@@ -142,5 +142,5 @@ def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-50.0):
     for i in range(len(xi)):
         actual_abun.append(np.array(GetAbundancesFixedYef(Ytot[i], T9, rho, lnYefMid, xi[i])))
     
-    return actual_abun
+    return (actual_abun)
     
