@@ -1,5 +1,4 @@
 import numpy as np 
-from time import process_time 
 
 def GetAbundancesFixedYef(Ytot, T9, rho, lnYef, xi, useNeutral = False):
     """
@@ -28,10 +27,12 @@ def GetAbundancesFixedYef(Ytot, T9, rho, lnYef, xi, useNeutral = False):
 
     # Calculate the log of the g function for all ionization states except for 
     # the fully ionized state 
-    lng = np.zeros((len(T9), len(xi))) 
-    for (i, x) in enumerate(xi):
-        lng[:,i] = np.log(2/(rho*Na)*(me*Kb*1.e9*T9/(2*np.pi*hbar*hbar))**(3/2)) 
-        lng[:,i] += - x/(Kbev*1.e9*T9) - lnYef
+    #lng = np.zeros((len(T9), len(xi)))
+    #for (i, x) in enumerate(xi):
+    #    lng[:,i] = np.log(2/(rho*Na)*(me*Kb*1.e9*T9/(2*np.pi*hbar*hbar))**(3/2))
+    #    lng[:,i] += - x/(Kbev*1.e9*T9) - lnYef
+    lng = np.outer(np.log(2/(rho*Na)*(me*Kb*1.e9*T9/(2*np.pi*hbar*hbar))**(3/2))  - lnYef, np.ones(len(xi)))
+    lng = lng - np.outer(1.0/(Kbev*1.e9*T9), xi)
 
     # Calculate the sum of ln g for every ionization state 
     lnh = np.zeros((len(T9), len(xi)+1)) 
@@ -64,7 +65,7 @@ def GetAbundancesFixedYef(Ytot, T9, rho, lnYef, xi, useNeutral = False):
         YI[:,i] = Ymax[:]*np.exp(lnhScaled[:,i])
     return YI 
 
-def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-100.0): 
+def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-50.0): 
     """ 
     Calculates the abundances of various ionization states by self-consistently 
     finding the free electron fraction assuming charge neutrality 
@@ -72,7 +73,7 @@ def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-100.0):
     We use bisection since it is simple to use on the entire numpy array at the 
     same time.
     """
-    
+    Ye_free_array = []
     # Set the initial range of allowed electron fractions
     lnYefLow = lnYeMin*np.ones(T9.shape) 
     lnYefHi = np.zeros(T9.shape) 
@@ -82,25 +83,36 @@ def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-100.0):
         For a given guess for the free electron fraction, calculate the free 
         electron fraction contributed by an element with total abundance Ytot 
         and ionization energies xi assuming charge neutrality
-        """   
-
-        #This is just a list of Ye for all times. This is one dimensional, still
-        
-        YefContribution = np.zeros(T9.shape) 
-   
+        """
+        #YI = list()
+        #YI = numpy.array((len(xi), len(T9), len(xi)+1))
+        #for i in range(len(xi)):
+         #   YI.append(GetAbundancesFixedYef(Ytot[i], T9, rho, lnYeg, xi[i]))   
+            
+        YefContribution = np.zeros(T9.shape) #This is just a list of Ye for all times. This is one dimensional, still
+        #print(YI)
         for j in range(len(xi)):
             Yc = GetAbundancesFixedYef(Ytot[j], T9, rho, lnYeg, xi[j])
-            for I in range(len(xi[j]) + 1): 
+            for I in range(len(xi[j]) + 1): #I think the +1 to the range is to account for a fully ionized solution
+                #YefContribution += I*YI[j][:,I] #How do I call this 3D array of sorts?  
                 YefContribution += I*Yc[:,I]
         return YefContribution
-     
+        
+        '''
+        for I in range(len(xi)+1): 
+            YefContribution += I*YI[:,I]
+        return YefContribution
+        '''
        #You will probably alter this portion to account for Ye contributions across multiple elements, which means multiple x_i arrays
     
     
     # Build function to compare Yef determined by charge neutrality and by the imposed Yef 
     # Find real solution by finding roots of this equation
-    fLow = np.log(GetYefContribution(Ytot, T9, rho, lnYefLow, xi)) - lnYefLow 
-    fHi = np.log(GetYefContribution(Ytot, T9, rho, lnYefHi, xi)) - lnYefHi
+    Ye_f = GetYefContribution(Ytot, T9, rho, lnYefLow, xi)
+    Ye_free_array.append(Ye_f)
+    
+    fLow = np.log(Ye_f) - lnYefLow 
+    fHi = np.log(Ye_f) - lnYefHi
     
     # We need to flag places where our function doesnt have opposite signs on either end of the interval 
     bad = np.where(fLow*fHi>0, 1.0, 0.0)
@@ -125,15 +137,17 @@ def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-100.0):
     
     # Choose the minimum value of Ye when the root doesn't sit in the initial range
     # This is safe since the upper bound is truly an upper bound 
-    lnYefMid = np.where(bad>0.5, lnYefLow, lnYefMid) 
+    lnYefMid = np.where(bad>0.5, lnYefLow, lnYefMid) #I think I understand?
     
     # Return the abundances
-        
+    
+    #Return GetAbundancesFixedYef(Ytot, T9, rho, lnYefMid, xi)
+    
     actual_abun = list()
     for i in range(len(xi)):
-        time_start = process_time()
         actual_abun.append(np.array(GetAbundancesFixedYef(Ytot[i], T9, rho, lnYefMid, xi[i])))
-        print('Finished Calculations for Element: ',i,' of the list and it took ',process_time() - time_start,' sec')
-        
-    return (actual_abun)
+    
+    return (actual_abun),bad,Ye_free_array
+
+    #Note that for this data file specifically, we used Ye .01 initially
     
