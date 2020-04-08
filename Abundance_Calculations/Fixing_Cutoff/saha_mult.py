@@ -65,7 +65,7 @@ def GetAbundancesFixedYef(Ytot, T9, rho, lnYef, xi, useNeutral = False):
         YI[:,i] = Ymax[:]*np.exp(lnhScaled[:,i])
     return YI 
 
-def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-50.0): 
+def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-150.0): 
     """ 
     Calculates the abundances of various ionization states by self-consistently 
     finding the free electron fraction assuming charge neutrality 
@@ -107,12 +107,9 @@ def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-50.0):
     
     
     # Build function to compare Yef determined by charge neutrality and by the imposed Yef 
-    # Find real solution by finding roots of this equation
-    Ye_f = GetYefContribution(Ytot, T9, rho, lnYefLow, xi)
-    Ye_free_array.append(Ye_f)
-    
-    fLow = np.log(Ye_f) - lnYefLow 
-    fHi = np.log(Ye_f) - lnYefHi
+    # Find real solution by finding roots of this equation   
+    fLow = np.log(GetYefContribution(Ytot, T9, rho, lnYefLow, xi)) - lnYefLow 
+    fHi = np.log(GetYefContribution(Ytot, T9, rho, lnYefHi, xi)) - lnYefHi
     
     # We need to flag places where our function doesnt have opposite signs on either end of the interval 
     bad = np.where(fLow*fHi>0, 1.0, 0.0)
@@ -139,6 +136,8 @@ def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-50.0):
     # This is safe since the upper bound is truly an upper bound 
     lnYefMid = np.where(bad>0.5, lnYefLow, lnYefMid) #I think I understand?
     
+    Ye_f_Mid = GetYefContribution(Ytot, T9, rho, lnYefMid, xi) #I could also return this value to check consistency of calculation.
+    Ye_free_array.append(np.exp(lnYefMid)) #This returns my best guess at Ye_free
     # Return the abundances
     
     #Return GetAbundancesFixedYef(Ytot, T9, rho, lnYefMid, xi)
