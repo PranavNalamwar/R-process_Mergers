@@ -27,10 +27,12 @@ def GetAbundancesFixedYef(Ytot, T9, rho, lnYef, xi, useNeutral = False):
 
     # Calculate the log of the g function for all ionization states except for 
     # the fully ionized state 
-    lng = np.zeros((len(T9), len(xi))) 
-    for (i, x) in enumerate(xi):
-        lng[:,i] = np.log(2/(rho*Na)*(me*Kb*1.e9*T9/(2*np.pi*hbar*hbar))**(3/2)) 
-        lng[:,i] += - x/(Kbev*1.e9*T9) - lnYef
+    #lng = np.zeros((len(T9), len(xi)))
+    #for (i, x) in enumerate(xi):
+    #    lng[:,i] = np.log(2/(rho*Na)*(me*Kb*1.e9*T9/(2*np.pi*hbar*hbar))**(3/2))
+    #    lng[:,i] += - x/(Kbev*1.e9*T9) - lnYef
+    lng = np.outer(np.log(2/(rho*Na)*(me*Kb*1.e9*T9/(2*np.pi*hbar*hbar))**(3/2))  - lnYef, np.ones(len(xi)))
+    lng = lng - np.outer(1.0/(Kbev*1.e9*T9), xi)
 
     # Calculate the sum of ln g for every ionization state 
     lnh = np.zeros((len(T9), len(xi)+1)) 

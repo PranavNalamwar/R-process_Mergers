@@ -1,4 +1,8 @@
-import numpy as np 
+import numpy as np
+import pickle
+
+with open("Ye_tot_from_Skynet.txt", "rb") as fp:   # Unpickling
+      Ye_tot_from_Skynet = (pickle.load(fp))
 
 def GetAbundancesFixedYef(Ytot, T9, rho, lnYef, xi, useNeutral = False):
     """
@@ -65,7 +69,7 @@ def GetAbundancesFixedYef(Ytot, T9, rho, lnYef, xi, useNeutral = False):
         YI[:,i] = Ymax[:]*np.exp(lnhScaled[:,i])
     return YI 
 
-def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-150.0): 
+def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-450.0): 
     """ 
     Calculates the abundances of various ionization states by self-consistently 
     finding the free electron fraction assuming charge neutrality 
@@ -74,9 +78,27 @@ def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-150.0):
     same time.
     """
     Ye_free_array = []
+    Ye_bound_array = []
+    Ye_f_Mid_array = []
     # Set the initial range of allowed electron fractions
     lnYefLow = lnYeMin*np.ones(T9.shape) 
-    lnYefHi = np.zeros(T9.shape) 
+    lnYefHi = np.zeros(T9.shape)
+    
+    
+    
+    def GetYe_bound(Ytot, T9, rho, lnYeg, xi):
+        """
+        Just calculating the bound electron fraction to make consise checks
+        """            
+        Ye_boundContribution = np.zeros(T9.shape) 
+        for j in range(len(xi)):
+            Yc = GetAbundancesFixedYef(Ytot[j], T9, rho, lnYeg, xi[j])
+            for I in range(len(xi[j]) + 1): 
+                Ye_boundContribution += (len(xi[j]) - I)*Yc[:,I]  
+        return Ye_boundContribution
+    
+    
+    
     
     def GetYefContribution(Ytot, T9, rho, lnYeg, xi):
         """
@@ -137,16 +159,21 @@ def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-150.0):
     lnYefMid = np.where(bad>0.5, lnYefLow, lnYefMid) #I think I understand?
     
     Ye_f_Mid = GetYefContribution(Ytot, T9, rho, lnYefMid, xi) #I could also return this value to check consistency of calculation.
+    Ye_f_Mid_array.append(Ye_f_Mid)
     Ye_free_array.append(np.exp(lnYefMid)) #This returns my best guess at Ye_free
+    Ye_bound_array.append(GetYe_bound(Ytot, T9, rho, lnYefMid, xi))
     # Return the abundances
     
     #Return GetAbundancesFixedYef(Ytot, T9, rho, lnYefMid, xi)
     
     actual_abun = list()
+    abundance_using_Ye_tot_instead = list()
+    
     for i in range(len(xi)):
         actual_abun.append(np.array(GetAbundancesFixedYef(Ytot[i], T9, rho, lnYefMid, xi[i])))
+        abundance_using_Ye_tot_instead.append(np.array(GetAbundancesFixedYef(Ytot[i], T9, rho,np.log(Ye_tot_from_Skynet), xi[i])))
     
-    return (actual_abun),bad,Ye_free_array
+    return (actual_abun),bad,Ye_free_array,Ye_bound_array,Ye_f_Mid_array,(abundance_using_Ye_tot_instead)
 
     #Note that for this data file specifically, we used Ye .01 initially
     

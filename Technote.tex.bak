@@ -1,0 +1,25 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\begin{document}
+\title{Technote for Lanthanide Database Code}
+\author{Pranav Nalamwar}
+\date{\today}
+\maketitle
+
+\noindent{{\Large  \underline{\textbf{Big Picture Intro}}}}
+\\\\
+This code was created by Pranav Nalamwar and Luke Roberts to calculate the abundances of each element formed due to the R-process from a neutron star merger. The code takes in an array of elements I am interested in and outputs the abundances of each element, allowing one to compare the data vs time and vs temperature. By doing so, one can see which elements and, in particular, which charge states dominate the most. With this information, anyone can look for spectra matching these predictions and understand more about the r-process results.
+\\\\
+\noindent{{\Large  \underline{\textbf{Attacking the Problem}}}}
+\\\\
+To attack this problem involving Nuclear Astrophysics and Atomic Physics, I decided to slowly work my way up to a function capable of all these calculations. I first started with Jupyter notebooks using Ipython as they were simple and functional. I developed the Samarium Abundance notebook, which simply took data specific about Sm, so the total elemental abundances and its ionization potentials, and using the Saha class(a class to do the calculations), I calculated the Sm abundances over temperature. Next, I upgrade to a two element scenario using a notebook called Multiple Elements Scenario and a new class that accounts for more than one element: saha mult.py. This code was able to calculate all the abundances for two elements, in this case Sm and Eu. Finally, I generalize this idea to N elements by creating the Abundance Function notebook, which simply requires you to input the elements in an array and returns the abundances, the ionization potentials,and plots of relative abundances vs time.
+\\\\
+\noindent{{\Large  \underline{\textbf{Code Breakdown}}}}
+\\\\
+The Multiple Scenario and Abundance Function codes both rely on the same structure for the calculations. I first pull ionization potentials from the NIST data base into an array for all elements desired. Then I make temperature extrapolation calculations 
+\end{document}
