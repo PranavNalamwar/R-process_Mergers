@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.23)  6 MAY 2020 01:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.23)  21 MAY 2020 23:48
 entering extended mode
 **./Technote_V-2.tex
 (Technote_V-2.tex
@@ -101,6 +101,16 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\apacite\apacite.st
+y"
+Package: apacite 2013/07/21 v6.03 APA citation
+\c@BibCnt=\count100
+\bibleftmargin=\skip46
+\bibindent=\skip47
+\bibparsep=\skip48
+\bibitemsep=\skip49
+\biblabelsep=\skip50
+)
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.
 sty"
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
@@ -188,14 +198,14 @@ fkeysfiltered.code.tex"
 \pgf@yd=\dimen125
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count100
-\c@pgf@countb=\count101
-\c@pgf@countc=\count102
-\c@pgf@countd=\count103
+\c@pgf@counta=\count101
+\c@pgf@countb=\count102
+\c@pgf@countc=\count103
+\c@pgf@countd=\count104
 \t@pgf@toka=\toks26
 \t@pgf@tokb=\toks27
 \t@pgf@tokc=\toks28
-\pgf@sys@id@count=\count104
+\pgf@sys@id@count=\count105
 
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\
 pgf.cfg"
@@ -214,8 +224,8 @@ File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\
 pgfsyssoftpath.code.tex"
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count105
-\pgfsyssoftpath@bigbuffer@items=\count106
+\pgfsyssoftpath@smallbuffer@items=\count106
+\pgfsyssoftpath@bigbuffer@items=\count107
 )
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\
 pgfsysprotocol.code.tex"
@@ -252,7 +262,7 @@ util.code.tex")
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmath
 parser.code.tex"
 \pgfmath@dimen=\dimen126
-\pgfmath@count=\count107
+\pgfmath@count=\count108
 \pgfmath@box=\box29
 \pgfmath@toks=\toks29
 \pgfmath@stack@operand=\toks30
@@ -278,7 +288,7 @@ functions.misc.code.tex")
 functions.integerarithmetics.code.tex")))
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmath
 float.code.tex"
-\c@pgfmathroundto@lastzeros=\count108
+\c@pgfmathroundto@lastzeros=\count109
 ))
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfint.
 code.tex")
@@ -318,7 +328,7 @@ File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfpic=\box30
 \pgf@hbox=\box31
 \pgf@layerbox@main=\box32
-\pgf@picture@serial@count=\count109
+\pgf@picture@serial@count=\count110
 )
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\p
 gfcoregraphicstate.code.tex"
@@ -353,8 +363,8 @@ File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 gfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@max=\dimen150
-\pgf@sys@shading@range@num=\count110
-\pgf@shadingcount=\count111
+\pgf@sys@shading@range@num=\count111
+\pgf@shadingcount=\count112
 )
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\p
 gfcoreimage.code.tex"
@@ -428,7 +438,7 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libraries\pg
 flibraryplothandlers.code.tex"
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count112
+\pgf@plot@mark@count=\count113
 \pgfplotmarksize=\dimen155
 )
 \tikz@lastx=\dimen156
@@ -443,19 +453,19 @@ File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \tikz@figbox@bg=\box36
 \tikz@tempbox=\box37
 \tikz@tempbox@bg=\box38
-\tikztreelevel=\count113
-\tikznumberofchildren=\count114
-\tikznumberofcurrentchild=\count115
-\tikz@fig@count=\count116
+\tikztreelevel=\count114
+\tikznumberofchildren=\count115
+\tikznumberofcurrentchild=\count116
+\tikz@fig@count=\count117
 
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modules\pgfm
 odulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count117
-\pgfmatrixcurrentcolumn=\count118
-\pgf@matrix@numberofcolumns=\count119
+\pgfmatrixcurrentrow=\count118
+\pgfmatrixcurrentcolumn=\count119
+\pgf@matrix@numberofcolumns=\count120
 )
-\tikz@expandcount=\count120
+\tikz@expandcount=\count121
 
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlaye
 r\tikz\libraries\tikzlibrarytopaths.code.tex"
@@ -464,8 +474,36 @@ File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\preprint\fullpage.
 sty"
 Package: fullpage 1999/02/23 1.1 (PWD)
-\FP@margin=\skip46
+\FP@margin=\skip51
 )
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.
+sty"
+\lst@mode=\count122
+\lst@gtempboxa=\box39
+\lst@token=\toks34
+\lst@length=\count123
+\lst@currlwidth=\dimen164
+\lst@column=\count124
+\lst@pos=\count125
+\lst@lostspace=\dimen165
+\lst@width=\dimen166
+\lst@newlines=\count126
+\lst@lineno=\count127
+\lst@maxwidth=\dimen167
+
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.s
+ty"
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count128
+\lst@skipnumbers=\count129
+\lst@framebox=\box40
+)
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.
+cfg"
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption.st
 y"
 Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
@@ -474,16 +512,17 @@ Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
 ty"
 Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 64.
-\captionmargin=\dimen164
-\captionmargin@=\dimen165
-\captionwidth=\dimen166
-\caption@tempdima=\dimen167
-\caption@indent=\dimen168
-\caption@parindent=\dimen169
-\caption@hangindent=\dimen170
+\captionmargin=\dimen168
+\captionmargin@=\dimen169
+\captionwidth=\dimen170
+\caption@tempdima=\dimen171
+\caption@indent=\dimen172
+\caption@parindent=\dimen173
+\caption@hangindent=\dimen174
 )
-\c@caption@flags=\count121
-\c@ContinuedFloat=\count122
+\c@caption@flags=\count130
+\c@ContinuedFloat=\count131
+Package caption Info: listings package is loaded.
 )
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
 sty"
@@ -502,50 +541,57 @@ Package ifvtex Info: VTeX not detected.
 sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count123
-\Gm@cntv=\count124
-\c@Gm@tempcnt=\count125
-\Gm@bindingoffset=\dimen171
-\Gm@wd@mp=\dimen172
-\Gm@odd@mp=\dimen173
-\Gm@even@mp=\dimen174
-\Gm@layoutwidth=\dimen175
-\Gm@layoutheight=\dimen176
-\Gm@layouthoffset=\dimen177
-\Gm@layoutvoffset=\dimen178
-\Gm@dimlist=\toks34
+\Gm@cnth=\count132
+\Gm@cntv=\count133
+\c@Gm@tempcnt=\count134
+\Gm@bindingoffset=\dimen175
+\Gm@wd@mp=\dimen176
+\Gm@odd@mp=\dimen177
+\Gm@even@mp=\dimen178
+\Gm@layoutwidth=\dimen179
+\Gm@layoutheight=\dimen180
+\Gm@layouthoffset=\dimen181
+\Gm@layoutvoffset=\dimen182
+\Gm@dimlist=\toks35
 
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.
 cfg")) (Technote_V-2.aux)
 \openout1 = `Technote_V-2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+\c@maskedRefs=\count135
 
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\apacite\english.ap
+c"
+File: english.apc 2013/07/21 v6.03 apacite language file
+LaTeX Info: Redefining \BPBI on input line 129.
+LaTeX Info: Redefining \BHBI on input line 130.
+)
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mk
 ii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count126
-\scratchdimen=\dimen179
-\scratchbox=\box39
-\nofMPsegments=\count127
-\nofMParguments=\count128
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count129
-\MPscratchDim=\dimen180
-\MPnumerator=\count130
-\makeMPintoPDFobject=\count131
-\everyMPtoPDFconversion=\toks36
+\scratchcounter=\count136
+\scratchdimen=\dimen183
+\scratchbox=\box41
+\nofMPsegments=\count137
+\nofMParguments=\count138
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count139
+\MPscratchDim=\dimen184
+\MPnumerator=\count140
+\makeMPintoPDFobject=\count141
+\everyMPtoPDFconversion=\toks37
 )
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-
 base.sty"
@@ -605,6 +651,7 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ) ABD: EveryShipout initializing macros
+\c@lstlisting=\count142
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
@@ -642,164 +689,223 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 15.
+LaTeX Font Info:    Try loading font information for U+msa on input line 17.
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 15.
+LaTeX Font Info:    Try loading font information for U+msb on input line 17.
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 20--24
+Underfull \hbox (badness 10000) in paragraph at lines 22--27
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--24
+Underfull \hbox (badness 10000) in paragraph at lines 22--27
 
  []
 
 [1
 
 {C:/Users/prana/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 26--30
+Underfull \hbox (badness 10000) in paragraph at lines 29--33
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--34
+Underfull \hbox (badness 10000) in paragraph at lines 33--37
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--34
+Underfull \hbox (badness 10000) in paragraph at lines 33--37
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--37
+Underfull \hbox (badness 10000) in paragraph at lines 37--40
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--37
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--63
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
+Underfull \hbox (badness 10000) in paragraph at lines 61--68
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
+Underfull \hbox (badness 10000) in paragraph at lines 61--68
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--72
+Underfull \hbox (badness 10000) in paragraph at lines 61--68
 
  []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--73
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--73
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
+
+ []
+
+<skynet_non_linear.png, id=25, 406.51875pt x 283.0575pt>
+File: skynet_non_linear.png Graphic file (type png)
+<use skynet_non_linear.png>
+Package pdftex.def Info: skynet_non_linear.png  used on input line 81.
+(pdftex.def)             Requested size: 483.69687pt x 336.80803pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<temptime.png, id=27, 473.77pt x 283.0575pt>
+File: temptime.png Graphic file (type png)
+<use temptime.png>
+Package pdftex.def Info: temptime.png  used on input line 86.
+(pdftex.def)             Requested size: 483.69687pt x 288.99556pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 83--88
+
+LaTeX Warning: Text page 4 contains only floats.
+
+[4 <./skynet_non_linear.png> <./temptime.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--88
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.
+sty"
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+Overfull \hbox (9.05826pt too wide) in paragraph at lines 113--114
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 115.
+
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 115.
+
+Overfull \hbox (15.62833pt too wide) in paragraph at lines 116--117
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 124.
+
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 124.
+
+Overfull \hbox (41.9086pt too wide) in paragraph at lines 128--129
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 147--152
 
  []
 
-<elemental.png, id=29, 614.295pt x 283.0575pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--152
+
+ []
+
+<elemental.png, id=43, 614.295pt x 283.0575pt>
 File: elemental.png Graphic file (type png)
 <use elemental.png>
-Package pdftex.def Info: elemental.png  used on input line 90.
+Package pdftex.def Info: elemental.png  used on input line 154.
 (pdftex.def)             Requested size: 483.69687pt x 222.88303pt.
-<samarium.png, id=31, 389.455pt x 283.0575pt>
+<samarium.png, id=44, 389.455pt x 283.0575pt>
 File: samarium.png Graphic file (type png)
 <use samarium.png>
-Package pdftex.def Info: samarium.png  used on input line 96.
+Package pdftex.def Info: samarium.png  used on input line 160.
 (pdftex.def)             Requested size: 362.77264pt x 263.67265pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--99
+Underfull \hbox (badness 10000) in paragraph at lines 160--163
 
  []
 
-[4 <./elemental.png>]
-<total.png, id=38, 724.7075pt x 283.0575pt>
+[6 <./elemental.png>]
+<total.png, id=49, 724.7075pt x 283.0575pt>
 File: total.png Graphic file (type png)
 <use total.png>
-Package pdftex.def Info: total.png  used on input line 101.
+Package pdftex.def Info: total.png  used on input line 165.
 (pdftex.def)             Requested size: 483.69687pt x 188.92624pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--108
+[7 <./samarium.png> <./total.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 172--175
 
  []
 
-[5 <./samarium.png> <./total.png>] (Technote_V-2.aux) ) 
+(Technote_V-2.bbl) [8] (Technote_V-2.aux) ) 
 Here is how much of TeX's memory you used:
- 14223 strings out of 492973
- 281670 string characters out of 3126692
- 326598 words of memory out of 3000000
- 17821 multiletter control sequences out of 15000+200000
- 14338 words of font info for 56 fonts, out of 3000000 for 9000
+ 16512 strings out of 492973
+ 311846 string characters out of 3126692
+ 548289 words of memory out of 3000000
+ 20074 multiletter control sequences out of 15000+200000
+ 14646 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,50p,1386b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/prana/AppData/
-Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/p
-rana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb
-><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmex10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cmextra/cmex8.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/prana/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/prana/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/p
-rana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb
-><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr12.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr17.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/prana/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/prana/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/prana/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Use
-rs/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8
-.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmti10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/amsfonts/symbols/msbm10.pfb>
-Output written on Technote_V-2.pdf (5 pages, 320047 bytes).
+ 55i,9n,50p,1387b,1738s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/prana/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/prana/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/
+prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pf
+b><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmex10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cmextra/cmex8.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/prana/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/prana/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/
+prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pf
+b><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr12.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr17.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/prana/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/prana/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/prana/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Us
+ers/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmti10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Technote_V-2.pdf (8 pages, 369890 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
+ 115 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
