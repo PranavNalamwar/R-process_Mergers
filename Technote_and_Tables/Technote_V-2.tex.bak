@@ -11,14 +11,12 @@
 \usepackage{listings}
 \usepackage{perpage}
 \MakePerPage{footnote}
-
 \usepackage[font=scriptsize,labelfont=bf]{caption}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
 \begin{document}
 \title{Technote: Ionization State Abundance Database in NSMs}
-\author{Pranav Nalamwar\footnote{nalamwar@frib.msu.edu}\\FRIB: frib.msu.edu\\ \href{http://www.latex-tutorial.com}\\Facility for Rare Isotope Beams\\Michigan State University\\Version: 0.02} 
-
+\author{Pranav Nalamwar\footnote{nalamwar@frib.msu.edu}\\FRIB: \url{https://frib.msu.edu}\\Facility for Rare Isotope Beams\\Michigan State University\\Version: 0.02} 
 \date{\today}
 
 \maketitle
