@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.23)  16 JUN 2020 17:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.23)  7 JUL 2020 23:46
 entering extended mode
 **./Technote_V-2.tex
 (Technote_V-2.tex
@@ -886,12 +886,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 177--180
 (Technote_V-2.bbl) [8] (Technote_V-2.aux) ) 
 Here is how much of TeX's memory you used:
  16571 strings out of 492973
- 312721 string characters out of 3126692
+ 312776 string characters out of 3126692
  549485 words of memory out of 3000000
  20124 multiletter control sequences out of 15000+200000
  16360 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,50p,1387b,1738s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,11n,50p,1393b,1738s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/prana/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/prana/AppData
 /Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/
@@ -916,7 +916,7 @@ nts/cm/cmsy8.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmti10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/prana/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Technote_V-2.pdf (8 pages, 388624 bytes).
+Output written on Technote_V-2.pdf (8 pages, 388197 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
