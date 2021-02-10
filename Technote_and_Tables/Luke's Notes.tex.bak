@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\begin{document}
+\title{Luke's Notes for Abundance Calculations for Charge Abundances}
+\author{Pranav Nalamwar}
+\date{\today}
+\maketitle   This sheet uses the Saha equation to find out the charge state abundances based solely on data provided by Skynet.
+\\
+\\
+Constraint on elemental abundances of element Z:
+$$Y_Z (t) = \sum_{I=0}^{Z} Y_{Z,I}(t)$$
+where $Y_Z (t)$ is the total abundance of element Z and $Y_{Z,I}$ is the abundance of Z in ionization state I.
+\\
+\\
+$$Y_{e,bound} = \sum_{Z=0}^{Z_{max}} \sum_{I=0}^{Z} (Z - I) Y_{Z,I}(t) = (1-f) Y_{e,tot}(t) $$
+Note: $Z_{max}$ is for summing over all possible elements while the second sum is summing over all possible ionization states of Z. 
+\\The value of f is introduced such that $Y_{e,free} = f Y_{e,tot}$. However, since f is an expensive calculation, take it as a randomly generated or hand-picked parameter. 
+\\\\\\Let's now take the Saha equation, which is converted to abundances rather than densities using the values of density: $$\frac{Y_{Z,I+1}}{Y_{Z,I}}  = \frac{2}{pN_A * Y_{e,tot}*f}  \left(\frac{G_{Z,I+1}}{G_{Z,I}}\right) \left(\frac{m_e k_b T}{2\pi\hbar^2}\right)^\frac{3}{2} \scalebox{1.3} e^{\left(\frac{\displaystyle -\chi_i}{\displaystyle k_b T}\right)} $$
+
+
+The function g is for partition functions, but since we are not focusing on such complexities, we will ignore it. Instead, we will condense the entire right side of the equation into a function $g_i (p,Y_{e,tot},T) $
+\\\\
+This next section will purely be calculations and equations: $$ Y_{Z,I+1} = Y_{Z,I} * g_I \Longrightarrow  Y_{Z,1} = Y_{Z,0}*g_0 $$   $$ Y_{Z,2} = Y_{Z,1}*g_1 = Y_{Z,0}*g_1 * g_0 $$
+such that 
+
+\begin{align} 
+Y_{Z,I} = Y_{Z,0} \prod_{m=0}^{I - 1} g_m 
+\end{align}
+
+Put in constraint on $Y_Z$ : $$ Y_Z = \sum_{I=0}^{Z} Y_{Z,0} \left(\prod_{m=0}^{I - 1} g_m\right) $$\\
+\begin{align} 
+\Longrightarrow Y_{Z,0} = \frac{Y_Z}{\quad \displaystyle \sum_{I=0}^{Z} \medspace \prod_{m=0}^{I - 1} g_m}
+\end{align}
+
+Note that the right hand side of the equation can be calculated purely from Skynet output and data about ionization potentials, which means you can use equation (1) to get all the $Y_{Z,I}$ for a single Z. 
+\\
+In total, you well have a function like this: $$func(T,\thinspace p,\thinspace Y_{e,free},\thinspace [\chi_i],\thinspace Y_Z)$$
+Now, while these equations are correct, they do result in overflow and underflow issues when graphing the abundances towards the very beginning of the abundance calculations. Therefore, instead of altering the ionization state each time $g_m$ is calculated, focus on just one ionization state. 
+\\\\
+Rewrite the expression  $\thinspace \displaystyle \prod_{m=0}^{I - 1} g_m$ as $h_I$, which is a function of $T,\thinspace p,\thinspace Y_{e,free}$ \\\\
+Then, $Y_{Z,I} = h_I  Y_{Z,0}$. Say another ionization state j is chosen, thus $Y_{Z,J} = h_J  Y_{Z,0}$ \\Therefore, the relation $\frac{Y_{Z,I}}{Y_{Z,J}} = \frac{h_I}{h_J} $ $\Longrightarrow
+Y_{Z,I} = Y_{Z,J}\thinspace \frac{h_I}{h_J}$ \\\\
+We can finally rewrite the elemental abundance $Y_Z$ as $Y_Z =\thinspace \displaystyle \sum_{I=0}^{Z} Y_{Z,I} = Y_{Z,J}\thinspace \displaystyle \sum_{I=0}^{Z} \frac{h_I}{h_J} $.\\ Rewriting this gives 
+\begin{align}
+Y_{Z,J} = \frac{Y_Z}{\displaystyle \sum_{I=0}^{Z} \frac{h_I}{h_J}}
+\end{align} 
+Equation (3) follows the same structure as equation (2). In fact, they are identical for J=0. The main difference is that equation (3) utilizes a constant $h_J$, indicating the calculation need not go through every element but only it's own element. This helps solve overflow and underflow issues for early times/high temperatures during the r-process. 
+
+
+\end{document}

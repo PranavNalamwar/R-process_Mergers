@@ -1,0 +1,31 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Kramida%
+, {Yu.~Ralchenko}%
+, Reader%
+\BCBL {}\ \BBA {} {and NIST ASD Team}%
+}{%
+Kramida%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2018}}%
+}]{%
+NIST_ASD}
+\APACinsertmetastar {%
+NIST_ASD}%
+\begin{APACrefauthors}%
+Kramida, A.%
+, {Yu.~Ralchenko}%
+, Reader, J.%
+\BCBL {}\ \BBA {} {and NIST ASD Team}.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2018}{}{}.
+\newblock
+\APAChowpublished {{NIST Atomic Spectra Database (ver. 5.6.1), [Online].
+  Available: {\tt{https://physics.nist.gov/asd}} [2018, December 22]. National
+  Institute of Standards and Technology, Gaithersburg, MD.}}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
