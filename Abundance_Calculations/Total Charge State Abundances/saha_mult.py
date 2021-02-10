@@ -177,7 +177,7 @@ def GetAbundances(Ytot, T9, rho, xi, niter=100, lnYeMin=-450.0):
         actual_abun.append(np.array(GetAbundancesFixedYef(Ytot[i], T9, rho, lnYefMid, xi[i])))
         #abundance_using_Ye_tot_instead.append(np.array(GetAbundancesFixedYef(Ytot[i], T9, rho,np.log(Ye_tot_from_Skynet), xi[i])))
     
-    return (actual_abun),bad,Ye_free_array,Ye_bound_array,Ye_f_Mid_array #,(abundance_using_Ye_tot_instead)
+    return (actual_abun) #,bad,Ye_free_array,Ye_bound_array,Ye_f_Mid_array #,(abundance_using_Ye_tot_instead)
 
     #Note that for this data file specifically, we used Ye .01 initially
     

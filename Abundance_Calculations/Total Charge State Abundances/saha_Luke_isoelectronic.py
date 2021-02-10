@@ -84,8 +84,8 @@ def GetYef(Ytot, T9, rho, xi, niter=25, lnYeMin=-400.0):
         """
         YefContribution = 0.0
         for (i, x) in enumerate(xi):
-          YI = GetAbundancesFixedYef(Ytot[:,i], T9, rho, lnYeg, x)
-          YefContribution += np.dot(YI, np.arange(0, len(x)+1, 1))
+            YI = GetAbundancesFixedYef(Ytot[:,i], T9, rho, lnYeg, x)
+            YefContribution += np.dot(YI, np.arange(0, len(x)+1, 1))
         return YefContribution
     
     # Build function to compare Yef determined by charge neutrality and by the imposed Yef 
