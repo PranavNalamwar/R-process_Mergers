@@ -1,0 +1,97 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+% \usepackage{physics} %for notation
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\begin{document}
+\title{Temperature Evolution Calculation Versions: Documentation}
+\author{Jaideep Singh,Luke Roberts, Pranav Nalamwar}
+\date{\today}
+\maketitle   This sheet indicates the equations and logic used to make each type of temperature evolution calculation used in the lanthanide abundance calculations. \\
+
+\textbf{First Temperature Evolution Model}: This is the simplest scenario where we take Skynet temperature data and apply a simple power law extrapolation. Here, we assumed that the system is purely radiation-dominated and adiabatic. Since Skynet has a cutoff temperature for late times, we first find the last unique temperature, use the previous 300 points to generate a slope in log log space, and calculate temperatures that follow this power law. Mathematically, this is 
+
+\begin{align}
+	\dfrac{log(T)}{log(t)} = m 
+\end{align}
+
+ where m is the slope, T is the temperature in GK, and t is the time in seconds. Thus
+$$ m*log(t) + b = log(T) $$ We can ignore the intercept in the calculations. To find the next temperature, we do
+\begin{align}
+	m*log(t) + log(T) = log(T')
+\end{align}
+
+where T' is the next temperature. \\ \\
+
+\textbf{Second Temperature Evolution Model}: Here, we attempt to improve upon the first temperature evolution by assuming the composition consists of a photon gas, which implies that we can no longer use an adiabatic expansion here. Thus there is radiation and a photon gas. We will derive a small change in temperature over a small change in time, which is later used in an ODE solver to figure out the temperature evolution. These values are all specific values. This $\frac{dT}{dt}$ is based purely off data from skynet. We first consider the entropy:
+
+\begin{align}
+	S = \dfrac{\lambda T^3}{\rho}
+\end{align}
+
+where S is the entropy in , T is the temperature in GK at a given timestep, $\rho$ is the density of the material in $1/m^3$, and $\lambda$ is the radiation constant in $\dfrac{J}{m^3 K^4}$. Note that density here is defined as $\rho = \dfrac{1}{m^3}$. We also know that 
+
+\begin{align}
+	\dfrac{dS}{dt} = \dfrac{\dot{Q} f}{T}
+\end{align}
+
+where $\dot{Q}$ is the heating rate in erg / s / g, and f is an efficiency from 0 to 1. Thus, after taking the derivative of the defined value of S from above, we set the two equations equal: 
+
+$$ \dfrac{dS}{dt} = \dfrac{\dot{Q}}{T} = \dfrac{\lambda}{f} [\dfrac{3T^2}{\rho}\dot{T} - \dfrac{T^3}{\rho^2}\dot{\rho}],$$ so then
+$$ \dfrac{3 \lambda T^2 \dot{T}}{f \rho} - \dfrac{T^3 \lambda}{f \rho^2}\dot{\rho} = \dfrac{\dot{Q}}{T}, $$ move $\dot{\rho}$ term to the right and get 
+$$ \dfrac{3 \lambda T^2 \dot{T}}{f \rho} = \dfrac{T^3 \lambda}{f \rho^2}\dot{\rho} + \dfrac{\dot{Q}}{T}, $$ then divide by $\dfrac{3 \lambda T^2}{f \rho} $ to get
+$$ \dfrac{\dot{T}}{T} = \dfrac{\dot{Q} f \rho}{3 \lambda T^4} + \dfrac{\dot{\rho}}{3 \rho} $$ Now note that since $ \dot{\rho} = -3t^{-1} \rho $ and $ \rho = \rho_0 (\dfrac{t}{t_0})^{-3} $ where $p_0$ and $t_0$ are the starting densities and times, respectively, we can do 
+$$ \dfrac{\dot{T}}{T} = \dfrac{\dot{Q} f \rho_0}{3 \lambda T^4} \dfrac{t}{t_0}^{-3} - \dfrac{1}{t} $$ Finally, we have our temperature derivative as 
+
+\begin{align}
+	\dot{T} = \dfrac{-T}{t} + \dfrac{\dot{Q} f \rho_0}{3 \lambda T^3} 	\dfrac{t}{t_0}^{-3} 
+\end{align}
+
+ An important thing to note here is that the original temperature-time evolution shows up here as the power law term as well as the photon gas term due to the non-adiabatic expansion. As an aside, we define the radiation constant $\lambda$ as $\lambda =  \dfrac{\sigma_{sb}}{4 c}$. As stated before, we take this $\dot{T}$ and use an ODE solver to get the evolution.
+
+\textbf{Third Temperature Evolution Model}: In this model, we now assume there is a radiation component, a photon gas component, as well as baryons that are part of this ejecta mixture. Due to the baryons, it is important to consider the pressures involved from radiation and the baryons themselves. Let us first use the first law of thermodynamics to define the derivative of the energy $\dfrac{d \epsilon}{dt}$ as
+
+\begin{align}
+	\dfrac{d \epsilon}{dt} = -P \dfrac{dV}{dt} + \dot{q_{nuc}}
+\end{align}
+
+where $\epsilon, P, V, \dot{q_{nuc}}$ are the energy of the system, the pressure, the volume, and the nuclear heating rate from r-process decays, respectively. Now note that since $ V = \dfrac{1}{\rho} $ in the gas, then $ \dot{V} = \dfrac{-1}{\rho ^2}\dot{\rho} $. Now we also know that the radiation energy  $\epsilon_{\gamma} =\dfrac{a T^4}{\rho}$, where a is the radiation constant from above ($a = \lambda$). Thus the derivative of the energy is 
+
+\begin{align}
+	\dfrac{d \epsilon}{dt} = \dfrac{4a T^3}{\rho} \dot{T} - 			\dfrac{a T^4}{\rho^2}\dot{\rho} 
+\end{align}
+
+From here, we can also define the energy as part radiation and part baryonic, which would give us 
+
+\begin{align}
+	\epsilon = \dfrac{a T^4}{\rho} + \dfrac{3}{2} \dfrac{k_B T}			{m_p} [\sum_{i=0}^{Z} Y_i(t) + Y_e] 
+\end{align}
+
+Equation 8's first term is for the radiation energy while the second term is for the baryons. The baryon component consists of a bunch of protons, neutrons, and electrons, which are all part of some elemental abundance or free-floating, which is why we use $Y_i$ and $Y_e$ here. Now $k_B, m_p$ are the boltzmann constant and the baryon mass, respectively. The baryon mass is chosen to be the proton mass for convenience. $Y_i, Y_e$ are the elemental abundance and electron fraction, respectively. The term in the bracket inside equation 8 will be denoted as $\tilde{Y}$ for convenience.\\
+We now take the derivative of this energy equation and later set it equal to the equation 6.
+$$ \dfrac{d \epsilon}{dt} = \dfrac{4a T^3}{\rho}\dot{T} - \dfrac{a T^4}{\rho^2} \dot{\rho} + \dfrac{3 k_B}{2 m_p} \tilde{Y} \dot{T} + \dfrac{3 k_B}{2 m_p} T \tilde{\dot{Y}} $$. Set both derivatives equal to each other:
+$$ \dfrac{-P}{\rho^2} \dot{\rho} + \dot{q_{nuc}} = \dfrac{4a T^3}{\rho} \dot{T} -  \dfrac{aT^4}{\rho^2} \dot{\rho} + \dfrac{3 k_B}{2 m_p} \dot{T} \tilde{Y} + \dfrac{3 k_B}{2 m_p} T \dot{\tilde{Y}} $$. From here, we can solve for $\dfrac{dT}{dt}$, which is 
+
+\begin{align}
+	\dfrac{dT}{dt} = \dfrac{[ \dfrac{-P}{\rho^2} \dot{\rho} + \dot{q_{nuc}} + \dfrac{aT^4}{\rho^2} \dot{\rho} - \dfrac{3 k_B}{2 m_p} T \dot{\tilde{Y}}]} {[\dfrac{4a T^3}{\rho} + \dfrac{3 k_b}{2 m_p} \tilde{Y}]}
+\end{align}
+Now while this does solve the time derivative of the temperature, we need to consider what the pressure is in terms of Skynet given variables. Thus, we know that the total pressure, $P_{tot}$, is given as $P_{tot} = P_{\gamma} + P_{ideal}$. Since volume $V = \rho ^{-1}$, we get the radiation pressure $P_{\gamma} = \dfrac{a T^4}{3}$.\\
+Now the ideal gas pressure is a result of all the baryons in the ejecta, which is usually defined as $P_{ideal} = \dfrac{N k_b T}{V}$, where $N$ is the total number of baryons present. The total number of particles comes from the abundance of species $Y_i = \dfrac{n_i}{n_B}$, where $n_i = \dfrac{N_i}{V}$. Note that $n_B$ is the density of baryons present. Thus, we can now calculate the ideal gas pressure: For a given species i,
+$$ P_i = Y_i n_B k_b T  = Y_i \rho k_b T$$. Now since $\rho = m_p n_B$, we then can write $P_i = \dfrac{Y_i \rho k_b T}{m_p}$. Putting all the ideal gas components together, we can write 
+$$ P_{ideal} = \sum_{i=0}^{Z} P_i + \dfrac{Y_e \rho k_b T}{m_p} $$. The total pressure, written with $\tilde{Y}$, is:
+
+\begin{align}
+	P_{tot} = \dfrac{a T^3}{3} + \dfrac{\tilde{Y} \rho k_b T}{m_p}
+\end{align} 
+
+Finally, we can write $\dot{T}$ in terms of known values as 
+
+\begin{align}
+	\dfrac{dT}{dt} = \dot{T} = \dfrac{ (\dfrac{-1}{\rho^2} (\dfrac{a T^4}{3} + \dfrac{\tilde{Y} \rho k_b T}{m_p}) \dot{\rho} + \dot{q_{nuc} + \dfrac{a T^4}{\rho ^2} \dot{\rho} - \dfrac{3 k_b}{2 m_p} T \dot{\tilde{Y}}} \hspace{.09in})} {( \dfrac{4a T^3}{\rho}  + \dfrac{3 k_b}{2 m_p} \tilde{Y})}
+\end{align}
+
+
+\end{document}

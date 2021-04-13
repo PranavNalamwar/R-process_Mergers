@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.23)  7 JUL 2020 23:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.23)  5 APR 2021 23:27
 entering extended mode
 **./Technote_V-2.tex
 (Technote_V-2.tex
@@ -696,121 +696,133 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+LaTeX Font Info:    Try loading font information for U+msa on input line 21.
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+LaTeX Font Info:    Try loading font information for U+msb on input line 21.
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 22.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 21.
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 22.
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--32
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--32
-
- []
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
 
 [1
 
 {C:/Users/prana/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 34--38
+Underfull \hbox (badness 10000) in paragraph at lines 33--38
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--42
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--42
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--45
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--52
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
+Underfull \hbox (badness 10000) in paragraph at lines 33--38
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 66--73
+Underfull \hbox (badness 10000) in paragraph at lines 40--44
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--73
+Underfull \hbox (badness 10000) in paragraph at lines 44--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--73
+Underfull \hbox (badness 10000) in paragraph at lines 44--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--78
+Underfull \hbox (badness 10000) in paragraph at lines 48--51
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--78
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 79--82
+Underfull \hbox (badness 10000) in paragraph at lines 56--58
 
  []
 
-<skynet_non_linear.png, id=28, 406.51875pt x 283.0575pt>
-File: skynet_non_linear.png Graphic file (type png)
-<use skynet_non_linear.png>
-Package pdftex.def Info: skynet_non_linear.png  used on input line 86.
-(pdftex.def)             Requested size: 483.69687pt x 336.80803pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
-<temptime.png, id=30, 473.77pt x 283.0575pt>
-File: temptime.png Graphic file (type png)
-<use temptime.png>
-Package pdftex.def Info: temptime.png  used on input line 91.
-(pdftex.def)             Requested size: 483.69687pt x 288.99556pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+ []
 
 [3]
+Underfull \hbox (badness 10000) in paragraph at lines 72--79
 
-LaTeX Warning: Text page 4 contains only floats.
+ []
 
-[4 <./skynet_non_linear.png> <./temptime.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--85
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--85
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 86--89
+
+ []
+
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 140--143
+
+ []
+
+[7] [8] [9]
+<skynet_non_linear.png, id=51, 406.51875pt x 283.0575pt>
+File: skynet_non_linear.png Graphic file (type png)
+<use skynet_non_linear.png>
+Package pdftex.def Info: skynet_non_linear.png  used on input line 225.
+(pdftex.def)             Requested size: 483.69687pt x 336.80803pt.
+<temptime.png, id=53, 473.77pt x 283.0575pt>
+File: temptime.png Graphic file (type png)
+<use temptime.png>
+Package pdftex.def Info: temptime.png  used on input line 230.
+(pdftex.def)             Requested size: 483.69687pt x 288.99556pt.
+ [10 <./skynet_non_linear.png> <./temptime.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
  []
 
@@ -819,106 +831,106 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--102
 sty"
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-Overfull \hbox (9.05826pt too wide) in paragraph at lines 118--119
+Overfull \hbox (9.05826pt too wide) in paragraph at lines 257--258
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 120.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 259.
 
-Overfull \hbox (15.62833pt too wide) in paragraph at lines 121--122
+Overfull \hbox (15.62833pt too wide) in paragraph at lines 260--261
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 129.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 268.
 
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 129.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 268.
 
-Overfull \hbox (41.9086pt too wide) in paragraph at lines 133--134
+Overfull \hbox (41.9086pt too wide) in paragraph at lines 272--273
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 152--157
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 291--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--157
+Underfull \hbox (badness 10000) in paragraph at lines 291--296
 
  []
 
-<elemental.png, id=45, 614.295pt x 283.0575pt>
+<elemental.png, id=64, 614.295pt x 283.0575pt>
 File: elemental.png Graphic file (type png)
 <use elemental.png>
-Package pdftex.def Info: elemental.png  used on input line 159.
+Package pdftex.def Info: elemental.png  used on input line 298.
 (pdftex.def)             Requested size: 483.69687pt x 222.88303pt.
-<samarium.png, id=46, 389.455pt x 283.0575pt>
+<samarium.png, id=65, 389.455pt x 283.0575pt>
 File: samarium.png Graphic file (type png)
 <use samarium.png>
-Package pdftex.def Info: samarium.png  used on input line 165.
+Package pdftex.def Info: samarium.png  used on input line 304.
 (pdftex.def)             Requested size: 362.77264pt x 263.67265pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--168
+Underfull \hbox (badness 10000) in paragraph at lines 304--307
 
  []
 
-[6 <./elemental.png>]
-<total.png, id=51, 724.7075pt x 283.0575pt>
+[12 <./elemental.png>]
+<total.png, id=70, 724.7075pt x 283.0575pt>
 File: total.png Graphic file (type png)
 <use total.png>
-Package pdftex.def Info: total.png  used on input line 170.
+Package pdftex.def Info: total.png  used on input line 309.
 (pdftex.def)             Requested size: 483.69687pt x 188.92624pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--172
+Underfull \hbox (badness 10000) in paragraph at lines 309--311
 
  []
 
-[7 <./samarium.png> <./total.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 177--180
+[13 <./samarium.png> <./total.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 316--319
 
  []
 
-(Technote_V-2.bbl) [8] (Technote_V-2.aux) ) 
+(Technote_V-2.bbl) [14] (Technote_V-2.aux) ) 
 Here is how much of TeX's memory you used:
  16571 strings out of 492973
- 312776 string characters out of 3126692
- 549485 words of memory out of 3000000
+ 312666 string characters out of 3126692
+ 549643 words of memory out of 3000000
  20124 multiletter control sequences out of 15000+200000
  16360 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,50p,1393b,1738s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/prana/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/prana/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/
-prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pf
-b><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmex10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cmextra/cmex8.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/prana/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/prana/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/
-prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pf
-b><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr12.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmr17.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/prana/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/prana/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/prana/AppD
-ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Use
-rs/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6
-.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmsy8.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmti10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/prana/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Technote_V-2.pdf (8 pages, 388197 bytes).
+ 55i,16n,50p,1393b,1738s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/prana/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/prana/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users
+/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.p
+fb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmex10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cmextra/cmex8.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/prana/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/prana/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users
+/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr12.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr17.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/prana/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/prana/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/prana/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Us
+ers/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy
+6.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmsy8.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmti10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/prana/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Technote_V-2.pdf (14 pages, 412808 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
+ 142 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
