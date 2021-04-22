@@ -4,12 +4,13 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{apacite}
+\usepackage{apacite} 
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{fullpage}
 \usepackage{listings}
 \usepackage{perpage}
+\usepackage{float}
 \MakePerPage{footnote}
 \bibliographystyle{apacite}
 \usepackage[font=scriptsize,labelfont=bf]{caption}
@@ -17,220 +18,246 @@
 
 \begin{document}
 
-\title{A Technical Note on calculating charge state abundances in neutron star mergers}
+\title{Using Skynet to Calculate Charge State Abundances in Neutron Star Mergers}
 
 \author{Pranav Nalamwar\\FRIB: \url{https://frib.msu.edu}\\Facility for Rare Isotope Beams\\Michigan State University\\Version: 0.03} 
 \date{\today}
 \maketitle
 
+\begin{abstract}
+
+This technical note is designed to go through the background for this project that utilizes nuclear astrophysics and atomic physics, but it will also cover the reasoning and logic behind each critical function used in the code with pseudo-code sections as well as numerous graphics that depict certain conditions or parameter testings. The technote will try to walk through the research by covering each step chronologically. The beginning of the technote, as seen above, presents some information about the background and goals of the project while the rest of the chapters will cover one crucial aspect of research starting with the charge state abundance calculations. After that procedure is explained, the studies on how the electron fraction, Ye, affects the calculated abundances will be addressed. While this is the extent of the research conducted thus far, there is much to be done in the future. Finally, the conclusion wraps everything together before the bibliography is presented.
+
+\end{abstract}
+
 \tableofcontents
 \newpage
 
-\section{Introduction and Purpose}
-
-This chapter is all about introducing the many components to our research. It is also where we discuss the many articles used during our literature review. We start by discussing nucleosynthesis as a whole and work our way into atomic physics and spectra.
-In reality, the introduction will go into the optical spectra of lanthanides portion before discussing the purpose of the research, such as having different models and parameters that affect abundance outputs.
+\section{Motivation and Background}
 
 \subsection{Stellar Nucleosynthesis}
 
-Nucleosynthesis is the process by which the elements of the universe are created using only nucleons formed after the Big Bang. \url{(https://www.energy.gov/science/doe-explainsnucleosynthesis)}.  
-The first stars (population III stars) were made up primarily of hydrogen and helium, and due to their massive sizes and pressures, were able to undergo fusion reactions and release heavier elements through supernovae. These elements include lithium, carbon, and other elements heavier than hydrogen and helium; when they are released by the supernovae, they enrich the chemical composition of the gas that will become part of a star in the future. This process continues to this day. \url{(https://www.physics.uu.se/ \\ research/astronomy-and-space-physics/research/galaxies/first-stars-galaxies)}. 
-Speaking about stellar nucleosynthesis, based on numerous observations of various stars, there are several types of stars, all of which undergo unique fusion reactions. For example, stars of masses on the order of magnitude of the Sun stop fusing a bit after the CNO cycle is completed (check). As for heavier stars that are 20 to 50 times heavier than the Sun, they will undergo numerous fusion reaction phases and layers before stopping at iron fusion. Once that happens, a supernova event will proceed. Supernovae are thought to produce a few heavier elements than iron through a neutron capture process. 
+Nucleosynthesis is the process by which the elements of the universe are created using only light nuclei formed after the Big Bang. \url{(https://www.energy.gov/science/doe-explainsnucleosynthesis)}.  
+The first stars (population III stars) were composed of primarily hydrogen and helium, and due to their massive sizes and pressures, were able to undergo nuclear fusion reactions and release heavier elements through supernovae. These elements include lithium, carbon, and other elements heavier than hydrogen and helium; when they are released by the supernovae, they enrich the chemical composition of the gas that will become part of a star in the future. This process continues to this day. \url{(https://www.physics.uu.se/ \\ research/astronomy-and-space-physics/research/galaxies/first-stars-galaxies)}. 
+Based on numerous observations of various stars, there are several types of stars, all of which undergo unique fusion reactions. For example, stars of roughly one solar mass stop fusing soon after the Carbon-Nitrogen-Oxygen (CNO) cycle is completed (check). As for heavier stars (20 to 50 solar masses), they will undergo numerous fusion reaction phases and layers before stopping at iron fusion. The last element formed in the core of the star is iron because the binding energy of Fe-56 is the largest possible, meaning fusion two of these nuclei is no longer energy efficient. Once that happens, a supernova event will proceed. Supernovae are thought to produce some elements heavier than iron through a neutron capture process. 
 
 \begin{figure}[h!]
   \includegraphics[width=1\textwidth]{periodic_table.png}
   \caption{Periodic table created by Jennifer Johnson depicting which elements are created by certain nucleosynthesis events, including neutron star mergers.}
 \end{figure}
 
-\subsection{The R-process}
+\subsection{The r-process}
 
-Supernovae are considered a potential location for neutron capture as there is a fairly dense region of neutrons, which is necessary for the capture process. However, to create the heaviest elements in the universe, a highly dense region of neutrons are required, which facilitates the rapid neutron capture process, or r-process. The r-process involves seed nuclei such as iron-56 absorbing numerous neutrons in succession before beta decaying back to stability, thereby resulting in nuclei that have higher charge and overall mass than the beginning. There are different nuclei made during this process, all of which can be found in the chart of the nuclides,but simply put, this is how elements such as gold and uranium are theorized to have been produced in nature. While supernovae certainly contribute a fraction of the abundances of these elements found in nature, a better candidate for the r-process would be neutron star mergers. \url{(http://greta.lbl.gov/science/r-process)}. 
+Supernovae are considered a potential location for neutron capture as there is a fairly dense region of neutrons, which is necessary for the capture process. However, to create the heaviest elements in the universe, a highly dense region of neutrons are required, which facilitates the rapid neutron capture process, or r-process. It is considered rapid because the slow neutron capture process, or s-process, only involves nuclei absorbing one nuclei at a time before beta decaying. In comparison, the r-process involves seed nuclei such as iron-56 absorbing several neutrons in quick succession before eventually beta decaying back to stability, thereby resulting in nuclei that have higher charge and overall mass than the beginning. There are different nuclei made during this process, all of which can be found in the chart of the nuclides,but simply put, this is how elements such as gold and uranium are theorized to have been produced in nature. While supernovae certainly contribute a fraction of the abundances of these elements found in nature, a better candidate for the r-process would be neutron star mergers. \url{(http://greta.lbl.gov/science/r-process)}. The primary reasoning for this is because the neutrino flux present in supernovae, especially from the resulting stellar remnant, is high enough to reduce the number of neutrons present in the ejected material. As a result, the density of neutrons drop below what is needed to produce heavy r-process elements. In contrast, neutron star mergers can result in a wide variety of neutrino fluxes including low values.
 
 \begin{figure}[h!]
   \includegraphics[width=1\textwidth , scale = .5]{nuclides_chart.png}
-  \caption{Chart of the nuclides from the NNDC. It shows the set of all isotopes currently known, the decay process each isotope can undergo, the lifetime of each isotope. For the high N isotopes, the r-process becomes dominant, and the isotopes that are formed during the process is highlighted by the chart.}
+  \caption{Chart of the nuclides from the NNDC. It shows the set of all isotopes currently known, the decay process each isotope can undergo, the lifetime of each isotope. For the high N isotopes, the r-process becomes dominant, and the isotopes that are formed during the process is highlighted by the chart. These isotopes are the ones below the line of stability in black with more neutrons than protons. The various colors represent the stability of each isotope; the black blocks are stable isotopes and lighter colors represent isotopes that decay at quicker rates with light orange (high N and low Z), being the most unstable. The bars represent the stable magic numbers for isotopes based on the ratio of protons and neutrons present in the nucleus.}
 \end{figure}
 
 \subsection{Neutron Star Mergers}
 
-Neutron star mergers(NSMs) are the coalescence of two dense balls of neutrons typically only 10 km in diameter \url{(https://astronomy.swin.edu.au/cosmos/N/Neutron+Star)}. As these neutron stars are largely neutrons due to their immense densities and composition, a merger between the two provides a hot and dense region of neutrons perfect for the r-process. The resulting atoms would have gone through numerous transformations in short time spans before becoming fully stable. There is some observational evidence hinting that NSMs are indeed the site for the r-process, most notably GW170817 and its resulting kilonova AT 2017gfo as well as GRB 170817A. 
+Neutron star mergers (NSMs) are the coalescence of two dense balls of primarily neutrons typically only 10 km in diameter \url{(https://astronomy.swin.edu.au/cosmos/N/Neutron+Star)}. As these neutron stars are mainly neutrons due to their immense densities and composition (95\% and 5\% protons), a merger between the two provides a dense source of neutrons ideal for the r-process. The residual nuclei, most of it being Fe-56, would have gone through several neutron absorptions and beta decays in short time spans before becoming fully stable. There is some observational evidence hinting that NSMs are indeed the site for the r-process, most notably GW170817 and its resulting kilonova AT 2017gfo as well as GRB 170817A. 
 
-\subsection{GW170817 Event, GRB 170817A Event, and AT2017gfo Event}
+\subsection{GW170817 Event and AT2017gfo Event}
 
-GW170817 was a gravitational wave merger detection by LIGO on August 17th, 2017. LIGO states the mass range of these stars was between 1.17 and 1.60 solar masses \url{(https://www.ligo.org/detections/ \\ GW170817/paper/GW170817-PRLpublished.pdf)}. While this in itself was the first ever gravitational wave detection for a non-black hole based merger, it was also important due to its two associated optical components. 
-First came a short Gamma Ray Burst(GRB) approximately 1.7 seconds after the gravitational wave detection, also marking the first time GW waves and electromagnetic waves were both observed from the same astrophysical event. It also points to the existence of light emitting atoms, which is also indicated by the kilonova AT 2017gfo. A kilonova, coined by Brian Metzger \url{(https://link.springer.com/article/10.1007/s41114-019-0024-0)}, is the resulting collection of light emitted by the energetic atoms created by the r-process. In the merger material, there is some density of electrons floating around and atoms undergoing constant ionizations all the while emitting light and absorbing electrons as the material cools. This ultimately results in the kilonovae light curves, which are indicative of what elements and ionization states were created. 
+GW170817 was a gravitational wave merger detection by the Laser Interferometer for Gravitational Wave Observatory (LIGO) on August 17th, 2017. LIGO states the mass range of these stars was between 1.17 and 1.60 solar masses \url{(https://www.ligo.org/detections/ \\ GW170817/paper/GW170817-PRLpublished.pdf)}. It was established that this gravitational wave detection was indeed a neutron star merger event due to its component masses as well as the associated gamma ray burst. While this in itself was the first ever gravitational wave detection for a non-black hole based merger, it was also important due to its two associated optical components. 
+First came a short Gamma Ray Burst (sGRB) approximately 1.7 seconds after the gravitational wave detection, also marking the first time gravitational waves and electromagnetic transients were both observed from the same astrophysical event. It also points to the existence of light emitting atoms, which is also indicated by the kilonova AT 2017gfo. A kilonova, coined by Brian Metzger \url{(https://link.springer.com/article/10.1007/s41114-019-0024-0)}, is the emission of light by the excited atoms created by the r-process. In the merger material, there is some density of electrons floating around. Also, atoms interact with these electrons as they undergo constant ionization and reionization, resulting in photon emission. This ultimately results in a kilonova, which is indicative of what elements and ionization states were created. 
 
 \begin{figure}[h!]
-  \includegraphics[scale = .5, width=1\textwidth]{ligo.jpg}
-  \caption{Sky localizations of merger events visible for LIGO observations. With the help of the two LIGO and the one Virgo interferometers, a patch of sky was localized for observation via telescopes. }
+  \includegraphics[scale = .5, width=1\textwidth]{GW170817_pic.png}
+  \caption{Image of NGC4993, the galaxy containing the GW170817 event (left). It is a composite of the discovery image on August 17th 2017 at 00:05:23 and g and r color images taken at .5 and 1.5 days post merger. The other image (right) is the same but 14 days post merger. }
 \end{figure}
 
 \subsection{Kilonovae Light Curves}
 
-Kilonovae, as stated before, are one of two of the EM components produced by neutron star mergers. The overall light curve, which is a show of the brightness over time of the observed phenomena, is composed of spectra from a variety of isotopes, ionization states, and elements. The overall composition of the merger material dictates how the light curve will function, namely its brightness, how long it peaks, and what time would it peak at \url{(https://iopscience.iop.org/article/10.3847/2041-8213/ \\ aa9029/pdf)}.
-Unfortunately, due to this large forest of various spectra, it is difficult to ascertain what elements in which ionization states were formed, so it is important to work backwards using models. The models can predict which groups of elements, whether it would be the transition metals or the lanthanides, are contributing certain spectral lines to the overall light curve. The lanthanides in particular are of course of great interest considering it is one of the least studied elements and the ones generated by r-process events \url{(https://arxiv.org/pdf/1702.02990.pdf)}.
+Kilonovae are one of two electromagnetic transients produced by neutron star mergers. The kilonova light curve, which shows the brightness over time of the event, often over all wavelengths, is composed of various spectra. The spectra's source includes a variety of elements, isotopes, and ionization states, each of which can result in the emission of photons at different wavelengths. The overall composition of the merger material dictates the properties of the light curve, namely its overall brightness, how long it peaks, and the time it peaks \url{(https://iopscience.iop.org/article/10.3847/2041-8213/ \\ aa9029/pdf)}.
+
+The kilonova spectrum is composed of the spectra from the various elements in the mixture. These elements can be found in different charge states, such as neutral or +1 charge state. These charge states exist at certain temperatures, so many charge states can exist throughout the period the merger ejecta material cools. For a particular element existing in a particular charge state, there are many energy levels present that an electron can occupy, thereby resulting in transitions numbering in the thousands and above.
+Unfortunately, due to this large forest of various spectra, it is difficult to ascertain what elements in which ionization states were formed, so it is important to work backwards using models  \url{(https://iopscience.iop.org/article/10.3847/2041-8213/aa9029)}. The models can predict which groups of elements, whether it would be the transition metals or the lanthanides, are contributing certain spectral lines to the overall light curve. The lanthanides in particular are of course of great interest considering it is one of the least studied elements and the ones generated by r-process events \url{(https://arxiv.org/pdf/1702.02990.pdf)}.
 
 \begin{figure}[h!]
   \includegraphics[width=1\textwidth]{light_curve.png}
-  \caption{Light curve at various magnitudes generated by Kasen and Barnes 2013 using iron (dashed) and r-process (solid) elements' opacities.  }
+  \caption{UV,optical, and near IR light curves for AT2017 gfo. The solid lines represent models that account for r-process heating and opacities while the shapes show observations. Thr three graphs on the right depict the same light curve over ten days for the g,i, and H light bands.  }
 \end{figure}
 
-\subsection{Optical Spectra of Lanthanides}
-
-The spectra from lanthanides itself is rather complex given that each of these elements has numerous electrons, and hence numerous energy levels and ionization states present. However, through modeling, numerous studies have found that lanthanide abundances can have a measurable impact on the kilonova light curve \url{(https://arxiv.org/pdf/1402.4803.pdf and https://arxiv.org/abs/1303.5787)}.
-Specifically, it appears that a kilonova can be more “red” or blue” depending on the lanthanide abundances. If the abundance is high, then the light curve is more red since the large density of lanthanides helps suppress most of the UV and optical light present from the merger mixture \url{(https://link.springer.com/ \\ article/10.1007\%2Fs41114-019-0024-0)}. In other words, the material has a high lanthanide opacity since the lanthanides makes the material opaque at the stated wavelengths. On the other hand, a low abundance mixture will result in a bluer kilonova, which means that the light curve peaks, or is strongest, in the optical band. The opacity of the lanthanides is low, so the light from the UV/optical components is much easier to observe. 
-
-%Attempting to put in latex code for level table instead of screenshot or picture
+The spectra from lanthanides itself is rather complex given that each of these elements has numerous valence electrons, and hence numerous energy levels and ionization states present. However, through modeling, numerous studies have found that lanthanide abundances can have a measurable impact on the kilonova light curve \url{(https://arxiv.org/pdf/1402.4803.pdf and \\ https://arxiv.org/abs/1303.5787)}.
+Specifically, it appears that a kilonova can be more “red” or blue” depending on the lanthanide abundances. If the abundance is high, then the light curve is more red since the large density of lanthanides helps suppress most of the UV and optical light present from the merger mixture \url{(https://link.springer.com/ \\ article/10.1007\%2Fs41114-019-0024-0)}. In other words, the material has a high lanthanide opacity since the lanthanides makes the material opaque at the stated wavelengths. Opacity is defined as how efficient merger material is at absorbing radiation. On the other hand, a low abundance mixture will result in a bluer kilonova, which means that the light curve peaks, or is strongest, in the optical band. The opacity of the lanthanides is low, so the light from the UV/optical components is much easier to observe. 
 
 \begin{figure}[h!]
+  \includegraphics[width=1\textwidth]{kasen_curves.png}
+  \caption{ Kilonova models for light curve(left). The graphic indicates the full bolometric luminosity vs days since merger for 10 days time. The various colors represent the lanthanide mass fraction present in the merger material, thus indicating that the lanthanide abundance can affect light curve on visible levels. The spectrum (right) shows the spectra observed from the merger at 4.5 days. Note that higher lanthanide fractions tend to shift the spectrum towards the IR. \url{(https://www-nature-com.proxy2.cl.msu.edu/articles/nature24453.pdf)} }
+\end{figure}
+
+
+\subsection{Atomic Structure of Lanthanides}
+
+The lanthanides are complex given their large nuclei and electrons. As a result, there is an array of isotopes and charge states available for each element. Since these lanthanides and their charge states are difficult to produce in a lab setting, scientists rely on atomic modeling, which requires accounting for the lanthanides' complexities. In the atomic modeling, it is necessary to calculate the various energy levels present to produce the light curve. However, each lanthanide has thousands of levels across the multiple charge states. Table 1 details these energy level complications. For example, Samarium has 63 charge states when including the neutral and fully ionized states; for just the first four states, there are 960 currently known energy levels according to the National Institute for Standards and Technology (NIST) database. The fifth state, which is the +4 ionization state, only has two states known, which are the ground state and ionization energy. This means for Sm (V) and beyond, there is not much known experimentally or even theoretically. Therefore, modeling the lanthanides using atomic structure model calculations is necessary, albeit difficult. 
+
+%Attempting to put in latex code for level table instead of screenshot or picture. Screenshot is better
+
+\begin{table}[h!]
   \includegraphics[width=1\textwidth]{level_pic.png}
   \caption{Table of lanthanides detailing number of atomic levels currently tabulated, which is necessary for spectra and opacity curves. Other key information such as electron configurations are listed. }
-\end{figure}
+\end{table}
 
-\begin{figure}[h!]
-  \includegraphics[scale=.5, width=1\textwidth]{opacity.png}
-  \caption{Opacity curve generated by Kasen and Barnes 2013 depicting expansion opacity values per wavelength. The ejecta had conditions of $\rho = 10^{-13} g cm^{-3}, \hspace{.01cm} T = 5000 K, \hspace{.01cm} t_{exp} = 1 \hspace{.01cm} day $ }
-\end{figure}
-
-\subsection{Technote}
-
-This technical note is designed to go through the background for this project that utilizes nuclear astrophysics and atomic physics, but it will also cover the reasoning and logic behind each critical function used in the code with pseudo-code sections as well as numerous graphics that depict certain conditions or parameter testings. The technote will try to walk through the research by covering each step chronologically. The beginning of the technote, as seen above, presents some information about the background and goals of the project while the rest of the chapters will cover one crucial aspect of research starting with the charge state abundance calculations. After that procedure is explained, the studies on how the electron fraction, Ye, affects the calculated abundances will be addressed. While this is the extent of the research conducted thus far, there is much to be done in the future. Finally, the conclusion wraps everything together before the bibliography is presented.
+\pagebreak
 
 \section{Calculating Charge State Abundances}
 
 This chapter is dedicated to explaining how the charge state abundances used throughout the research is calculated, starting from Skynet’s elemental abundances. There are numerous tests and functions reliant on the charge state abundances. It will walk through the logic, reasoning, and pseudocode for each major coding section as well as graphics essential in illustrating key functions. 
 
+It is important to calculate the charge state abundances since various charge states of the lanthanides exist in the ejecta material, all of which contribute the the spectra and thus the kilonova light curve. Thus, it is necessary to calculate how abundant each species is. Now to calculate these charge state abundances, the elemental abundances, a value calculated from Skynet via summing all the isotopic abundances of a given element together, is needed. Alongside the elemental abundance values, tan accurate temperature vs. time extrapolation is needed to effectively calculate which charge state is present in the merger material at any give time. The temperature vs. time values are extrapolated since Skynet stops calculating the values once nuclear heating stops; since we deal with timescales of two weeks, well beyond Skynet's last temperature value, extrapolation is done. Together with this temperature and the elemental abundances, the charge state abundances are calculated via the Saha equation. 
+
 \subsection{Introduction to Skynet}
 
-Skynet, a nuclear-reaction network code for neutron star merger abundance calculations designed by Luke Roberts and Jonas Lippuner \url{(https://arxiv.org/abs/1706.06198)}, is the starting point for the research. With certain initial parameters-- namely the electron fraction, dynamical time, and entropy-- we are able to model the abundances of numerous elements and isotopes generated by neutron star mergers. Note that abundances are measured in terms of the density or number of a given atom relative to the number or density of baryons present in the merger mixture. Skynet considers the nuclear data such as cross sections, the density of material and its temperature, and other factors to output this abundance information. It also outputs key data such as temperature, density, and electron fraction as functions of time. While this data is used for the charge state abundances, Skynet is treated as a blackbox beyond the use of altering initial parameters. The functions used for extracting data out of Skynet, primarily the abundance value ones since Skynet returns only isotopic abundances and we need elemental ones, is initialization().
+Skynet, a nuclear-reaction network code for neutron star merger abundance calculations designed by Luke Roberts and Jonas Lippuner \url{(https://iopscience.iop.org/article/10.3847/\\1538-4365/aa94cb)}, is the starting point for the research. With certain initial parameters-- namely the electron fraction, dynamical time, and entropy-- we are able to calculate the abundances of various elements generated by neutron star mergers. The electron fraction is the abundance of electrons present in the material either orbiting nuclei or freely moving in the ejecta material. The dynamical time is the timescale on which the ejecta will expand while the entropy is classically defined as the disorder of the system.
+
+Note that abundances are measured in terms of the density or number of a given atom relative to the number or density of baryons present in the merger mixture. Skynet considers the nuclear data such as cross sections, the density of material and its temperature, and other factors to output this abundance information. It also outputs key data such as temperature, density, and electron fraction as functions of time. While this data is used for the charge state abundances, Skynet is treated as a blackbox beyond the use of altering initial parameters. The functions used for extracting data out of Skynet, primarily the abundance value ones since Skynet returns only isotopic abundances and we need elemental ones, is initialization().
 
 \begin{figure}[h!]
-  \includegraphics[]{skynet_non_linear.png}
+  \includegraphics[scale = .75]{skynet_non_linear.png}
   \caption{Plot of temperature vs time with temperature in units of GK. This is data extracted directly from Skynet. For large times, Skynet truncates any temperature calculation, resulting in this flat curve in late times. Temperature ranges from $10^1 \hspace{.03 cm} GK$ to $10^{-4} \hspace{.03 cm} GK$.}
 \end{figure}
 
 \begin{figure}[h!]
-  \includegraphics[scale = .75]{elemental.png}
+  \includegraphics[scale = .65]{elemental.png}
   \caption{Plot of abundances for all lanthanides over time (left) based on output from Skynet. Note that the abundances at early times is noise considering there are values lower than $10-20$. Values become significant around $10^{-1}$ sec}
 \end{figure} 
 
 
 \subsection{Extrapolating Temperature as a Function of Time from Skynet}
 
-While Skynet does return the temperature and time of the merger material, it has a strong cutoff for very late times as the intended goal for Skynet was to figure out what exactly is produced by the time the rapid neutron capture process is over instead of figuring out what elements and charge states are left once the material is fully cooled. Thus, over time, a total of three models were created to address this cutoff issue and evolve the temperature passed this point. The three models are based off what the material is assumed to be and how it evolves; the first is a radiation based adiabatic model, the second is a photon gas and is not adiabatic, and the last one involves both a photon gas and baryon component that are both non-adiabatic. The names of these models in the code are \\ temp \_ calculator(),  temp \_ evolution\_ photon(), and temp \_ evolution \_ baryon(). See next page for in-depth analysis of temperature evolution. 
-
-\pagebreak
+While Skynet does return the temperature and time of the merger material, it has a strong cutoff for very late times. This is since the intended goal for Skynet was to figure out what is produced by the end of the r-process instead of figuring out what elements and charge states are left once the material is fully cooled. Three temperature evolution models were created to address this cutoff issue and evolve the temperature passed this point. The three models are based off what the material is assumed to be and how it evolves; the first is a radiation based adiabatic model, the second is a photon gas and is not adiabatic, and the last one involves both a photon gas and baryon component that are both non-adiabatic. The names of these models in the code are \\ temp \_ calculator(),  temp \_ evolution\_ photon(), and temp \_ evolution \_ baryon(). See next page for in-depth analysis of temperature evolution. \\ 
 
 
-
-
-
-
-
-\maketitle   This sheet indicates the equations and logic used to make each type of temperature evolution calculation used in the lanthanide abundance calculations. \\
-
-\textbf{Radiation-Based, Adiabatic Model}: This is the simplest scenario where we take Skynet temperature data and apply a simple power law extrapolation. Here, we assumed that the system is purely radiation-dominated and adiabatic. Since Skynet has a cutoff temperature for late times, we first find the last unique temperature, use the previous 300 points to generate a slope in log log space, and calculate temperatures that follow this power law. Mathematically, this is 
+\textbf{Radiation-Based, Adiabatic Model}: This is the simplest scenario where we take Skynet temperature data and apply a simple power law extrapolation. Here, we assumed that the system is purely radiation-dominated and adiabatic, which means there is no heat transfer present. Since Skynet has a cutoff temperature for late times, we first find the last unique temperature present. Using this and 300 temperature values before it, we fit the data to an equation of the form $y = mx + b$. In this scenario, the variables are all in log form. To find the slope $m$, we use two points along the line.
 
 \begin{align}
-	\dfrac{log(T)}{log(t)} = m 
+	\dfrac{\Delta \log{T}}{\Delta \log{t}} = m 
 \end{align}
 
- where m is the slope, T is the temperature in GK, and t is the time in seconds. Thus
-$$ m*log(t) + b = log(T) $$ We can ignore the intercept in the calculations. To find the next temperature, we do
+where $T$ is the temperature in GK, and $t$ is the time in seconds. Using this slope and the current temperature value to calculate the next temperature. 
+
 \begin{align}
-	m*log(t) + log(T) = log(T')
+	\log{T'} = m \log{t} + log(T)
 \end{align}
 
-where T' is the next temperature. \\ \\
+where $T$ is the current temperature, $t$ is the current time, and $T'$ is the next temperature value.  \\ \\
 
-\textbf{Photon Gas, Non-Adiabatic}: Here, we attempt to improve upon the first temperature evolution by assuming the composition consists of a photon gas, which implies that we can no longer use an adiabatic expansion here. Thus there is radiation and a photon gas. We will derive a small change in temperature over a small change in time, which is later used in an ODE solver to figure out the temperature evolution. These values are all specific values. This $\frac{dT}{dt}$ is based purely off data from skynet. We first consider the entropy:
+\textbf{Photon Gas, Non-Adiabatic}: We now attempt to improve upon the first temperature evolution by assuming the composition consists of a photon gas, which implies that we can no longer use an adiabatic expansion here. Thus there is radiation and a photon gas. The radiation component refers to the photons that can do work on the system. The photon gas, on the other hand, refers to a collection of photons that acts like a gas, meaning it can be characterized by a pressure, temperature, volume, and entropy. We will derive a small change in temperature over a small change in time, which is later used in an ordinary differential equation solver to figure out the temperature evolution. These values are all specific values, so each extensive value is divided by the mass present. This $\frac{dT}{dt}$ is based purely off data from Skynet. We first consider the entropy:
 
 \begin{align}
 	S = \dfrac{\lambda T^3}{\rho}
 \end{align}
 
-where S is the entropy in , T is the temperature in GK at a given timestep, $\rho$ is the density of the material in $\dfrac{kg}{m^3}$, and $\lambda$ is the radiation constant in $\dfrac{J}{m^2 s {GK}^4}$.  We also know that 
+where S is the entropy in $\dfrac{J}{kg s (GK)}$ , T is the temperature in GK at a given timestep, $\rho$ is the density of the material in $\mathrm{\dfrac{kg}{m^3}}$, and the constant $\lambda$ as $\lambda =  \dfrac{4 \sigma_{sb}}{3}$, which has units of $\dfrac{J}{m^2 s ({GK})^4}$.. We also know that 
 
 \begin{align}
 	\dfrac{dS}{dt} = \dfrac{\dot{Q} f}{T}
 \end{align}
 
-where $\dot{Q}$ is the heating rate in erg / s / g, and f is an efficiency from 0 to 1. Thus, after taking the derivative of the defined value of S from above, we set the two equations equal: 
+where $\dot{Q}$ is the heating rate in erg / s / g from Skynet, which is later converted to $\dfrac{J}{kg s}$. The other value $f$ is an efficiency from 0 to 1 that represents how efficiently is the material heated. Thus, after taking the derivative of the defined value of $S$ from above, we set the two equations equal: 
 
-$$ \dfrac{dS}{dt} = \dfrac{\dot{Q}}{T} = \dfrac{\lambda}{f} \left(\dfrac{3T^2}{\rho}\dot{T} - \dfrac{T^3}{\rho^2}\dot{\rho} \right),$$ so then
-$$ \dfrac{3 \lambda T^2 \dot{T}}{f \rho} - \dfrac{T^3 \lambda}{f \rho^2}\dot{\rho} = \dfrac{\dot{Q}}{T}, $$ move $\dot{\rho}$ term to the right and get 
-$$ \dfrac{3 \lambda T^2 \dot{T}}{f \rho} = \dfrac{T^3 \lambda}{f \rho^2}\dot{\rho} + \dfrac{\dot{Q}}{T}, $$ then divide by $\dfrac{3 \lambda T^2}{f \rho} $ to get
-$$ \dfrac{\dot{T}}{T} = \dfrac{\dot{Q} f \rho}{3 \lambda T^4} + \dfrac{\dot{\rho}}{3 \rho} $$ Now note that since $ \dot{\rho} = -3t^{-1} \rho $ and $ \rho = \rho_0 (\dfrac{t}{t_0})^{-3} $ where $p_0$ and $t_0$ are the starting densities and times, respectively, we can do 
-$$ \dfrac{\dot{T}}{T} = \dfrac{\dot{Q} f \rho_0}{3 \lambda T^4} \left( \dfrac{t}{t_0} \right) ^{-3} - \dfrac{1}{t} $$ Finally, we have our temperature derivative as 
+$$ \dfrac{dS}{dt} = \dfrac{\dot{Q} f}{T} = \lambda \left(\dfrac{3T^2}{\rho}\dot{T} - \dfrac{T^3}{\rho^2}\dot{\rho} \right),$$ From here, divide both sides by $f$ and distribute the $\lambda$
+$$ \dfrac{3 \lambda T^2 \dot{T}}{f \rho} - \dfrac{T^3 \lambda}{f \rho^2}\dot{\rho} = \dfrac{\dot{Q}}{T}, $$
+
+Move the $\dot{\rho}$ term to the right 
+$$ \dfrac{3 \lambda T^2 \dot{T}}{f \rho} = \dfrac{T^3 \lambda}{f \rho^2}\dot{\rho} + \dfrac{\dot{Q}}{T}, $$
+
+We then divide by $\dfrac{3 \lambda T^2}{f \rho} $ to isolate $\dfrac{\dot{T}}{T}$
+$$ \dfrac{\dot{T}}{T} = \dfrac{\dot{Q} f \rho}{3 \lambda T^4} + \dfrac{\dot{\rho}}{3 \rho} $$ 
+
+Now note that since the density is homologous, it can be written as $ \rho = \rho_0 \left(\dfrac{t}{t_0} \right)^{-3} $ where $\rho_0$ and $t_0$ are the initial densities and times, respectively. From this, we can get the derivative of $\rho$, which is $ \dot{\rho} = -3t^{-1} \rho $. 
+
+With this, we can replace $\rho$ and $\dot{\rho}$ to get our equation.
+$$ \dfrac{\dot{T}}{T} = \dfrac{\dot{Q} f \rho_0}{3 \lambda T^4} \left( \dfrac{t}{t_0} \right) ^{-3} - \dfrac{1}{t} $$ Finally, the temperature derivative can be written as 
 
 \begin{align}
 	\dot{T} = \dfrac{-T}{t} + \dfrac{\dot{Q} f \rho_0}{3 \lambda T^3} 	\left( \dfrac{t}{t_0} \right) ^{-3} 
 \end{align}
 
- An important thing to note here is that the original temperature-time evolution shows up here as the power law term as well as the photon gas term due to the non-adiabatic expansion. As an aside, we define the radiation constant $\lambda$ as $\lambda =  \dfrac{4 \sigma_{sb}}{3}$. As stated before, we take this $\dot{T}$ and use an ODE solver to get the evolution.
+This equation includes the original temperature-time evolution, which is the power law term, and the photon gas component, which is the second part of the equation. We can see there is a clear distinction between these terms.  This 
+$\dot{T}$, an ODE, can be solved numerically to determine the temperature evolution.
 \\\\
-\textbf{Photon Gas and Baryon Component}: In this model, we now assume there is a radiation component, a photon gas component, as well as baryons that are part of this ejecta mixture. Due to the baryons, it is important to consider the pressures involved from radiation and the baryons themselves. All terms are specific values. Let us first use the first law of thermodynamics to define the derivative of the energy $\dfrac{d \epsilon}{dt}$ as
+
+\textbf{Photon Gas and Baryon Component}: In this model, we now assume there is a radiation component, a photon gas component, as well as baryons that are part of this ejecta mixture. Due to the baryons, it is important to consider the pressures involved from radiation and the baryons themselves. All terms are specific values, meaning each extensive term is divided by the mass present. Let us first use the first law of thermodynamics to define the derivative of the energy $\dfrac{d \epsilon}{dt}$ as
 
 \begin{align}
-	\dfrac{d \epsilon}{dt} = -P \dfrac{dv}{dt} + \dot{q_{nuc}}
+	\dfrac{d \epsilon}{dt} = -P \dfrac{dv}{dt} + \dot{q}_\mathrm{nuc}
 \end{align}
 
-where $\epsilon, P, v, \dot{q_{nuc}}$ are the energy of the system, the pressure, the specific volume, and the nuclear heating rate from r-process decays, respectively. Now note that since $ v = \dfrac{1}{\rho} $ in the gas, then $ \dot{v} = \dfrac{-1}{\rho ^2}\dot{\rho} $. Now we also know that the radiation energy  $\epsilon_{\gamma} =\dfrac{a T^4}{\rho}$, where a is the radiation constant from above ($a = \lambda$). Thus the derivative of the energy is 
+where $\epsilon, P, v, \dot{q}_\mathrm{nuc}$ are the energy of the system, the pressure, the specific volume (volume per unit mass), and the nuclear heating rate from r-process decays, respectively. Since $\rho$ is the mass density and $ v = \dfrac{1}{\rho} $ in the gas, then $ \dot{v} = \dfrac{dv}{dt} =  \dfrac{-1}{\rho ^2}\dot{\rho} $. With these substitutions, $\dot{\epsilon}$ becomes: 
 
 \begin{align}
 	\dfrac{d \epsilon}{dt} = \dfrac{4a T^3}{\rho} \dot{T} - 			\dfrac{a T^4}{\rho^2}\dot{\rho} 
 \end{align}
 
-From here, we can also define the energy as part radiation and part baryonic, which would give us 
+We can also write the energy in another way; both the photon gas and baryon components have energy values. The photon gas energy is given by $\epsilon_{\gamma} =\dfrac{a T^4}{\rho}$, where a is the radiation constant defined as $a = \dfrac{4 \sigma}{c}$ with units of $\dfrac{J}{m^3 {GK}^4}$.\\
+
+The baryon energy, which we will denote as the non-radiation energy, is given by $\epsilon_{non-rad} = \dfrac{3 k_B T}{2 m_p} Y_{non-rad}$. Now $k_B, m_p$ are the Boltzmann constant and the baryon mass, respectively. $Y_{non-rad}$ is just a placeholder abundance value to show the density of particles present. The sum of these energies, $\epsilon_{tot} = \epsilon_\gamma + \epsilon_{non-rad}$ will give us the total energy. 
+\\
+
+From here, we can rewrite $Y_{non-rad}$ with the abundance values from the atoms and electrons as well as rewrite $\epsilon_{tot}$. This equation becomes:  
 
 \begin{align}
-	\epsilon = \dfrac{a T^4}{\rho} + \dfrac{3}{2} \dfrac{k_B T}			{m_p} [\sum_{i=0}^{Z} Y_i(t) + Y_e] 
+	\epsilon_{tot} = \dfrac{a T^4}{\rho} + \dfrac{3 k_B T}{2 m_p} \left[\sum_{i=0}^{Z} Y_i(t) + Y_e \right] 
 \end{align}
 
-Equation 8's first term is for the radiation energy while the second term is for the baryons. The baryon component consists of a bunch of protons, neutrons, and electrons, which are all part of some elemental abundance or free-floating, which is why we use $Y_i$ and $Y_e$ here. Now $k_B, m_p$ are the boltzmann constant and the baryon mass, respectively. The baryon mass is chosen to be the proton mass for convenience. $Y_i, Y_e$ are the elemental abundance and electron fraction, respectively. The term in the bracket inside equation 8 will be denoted as $\tilde{Y}$ for convenience.\\
-We now take the derivative of this energy equation and later set it equal to the equation 6.
-$$ \dfrac{d \epsilon}{dt} = \dfrac{4a T^3}{\rho}\dot{T} - \dfrac{a T^4}{\rho^2} \dot{\rho} + \dfrac{3 k_B}{2 m_p} \tilde{Y} \dot{T} + \dfrac{3 k_B}{2 m_p} T \tilde{\dot{Y}} $$ Set both derivatives equal to each other:
+Equation 8's first term is the radiation energy component while the second term is for the baryons and electrons. These baryons and electrons make up the non-radiation component mentioned earlier. The non-radiation component consists of the baryons, which are found in nuclei and affect the elemental abundance values $Y_i$. The electrons are either orbiting the nucleus or are free-floating, so the electron fraction term $Y_e$ is used here as the sum of all electrons present in the ejecta. The baryon mass is chosen to be the proton mass for convenience. The term in the bracket inside equation 8 will be denoted as $\tilde{Y}$ for convenience.\\
+We now take the derivative of this energy equation, leading to the following expression. \\
+
+$$ \dfrac{d \epsilon}{dt} = \dfrac{4a T^3}{\rho}\dot{T} - \dfrac{a T^4}{\rho^2} \dot{\rho} + \dfrac{3 k_B}{2 m_p} \tilde{Y} \dot{T} + \dfrac{3 k_B}{2 m_p} T \tilde{\dot{Y}} $$ \\
+
+We now solve for $\dfrac{dT}{dt}$ to find: 
 $$ \dfrac{P}{\rho^2} \dot{\rho} + \dot{q_{nuc}} = \dfrac{4a T^3}{\rho} \dot{T} -  \dfrac{aT^4}{\rho^2} \dot{\rho} + \dfrac{3 k_B}{2 m_p} \dot{T} \tilde{Y} + \dfrac{3 k_B}{2 m_p} T \dot{\tilde{Y}} $$ From here, we can solve for $\dfrac{dT}{dt}$, which is 
 
 \begin{align}
 	\dfrac{dT}{dt} = \dfrac{[ \dfrac{P}{\rho^2} \dot{\rho} + \dot{q_{nuc}} + \dfrac{aT^4}{\rho^2} \dot{\rho} - \dfrac{3 k_B}{2 m_p} T \dot{\tilde{Y}}]} {[\dfrac{4a T^3}{\rho} + \dfrac{3 k_b}{2 m_p} \tilde{Y}]}
 \end{align}
 
-Now while this does solve the time derivative of the temperature, we need to consider what the pressure is in terms of Skynet given variables. Thus, we know that the total pressure, $P_{tot}$, is given as $P_{tot} = P_{\gamma} + P_{ideal}$. Since specific volume $v = \rho ^{-1}$, we get the radiation pressure $P_{\gamma} = \dfrac{a T^4}{3}$.\\
-Now the ideal gas pressure is a result of all the baryons in the ejecta, which is usually defined as $P_{ideal} = \dfrac{N k_b T}{v}$, where $N$ is the total number of baryons present. The total number of particles comes from the abundance of species $Y_i = \dfrac{n_i}{n_B}$, where $n_i = \dfrac{N_i}{v}$. Note that $n_B$ is the density of baryons present. Thus, we can now calculate the ideal gas pressure: For a given species i,
+Equation presents the temperature derivative in terms of known values except for the pressure. We now need to determine the pressure $P$ in terms of Skynet's output parameters. Thus, we know that the total pressure, $P_{tot}$, is given as $P_{tot} = P_{\gamma} + P_{ideal}$. Since the specific volume is $v = \dfrac{1}{\rho}$ and the pressure is related to the energy by $P_\gamma = \frac{U}{3V}$,  we get the radiation pressure $P_{\gamma} = \dfrac{a T^4}{3}$.\\
+Now the ideal gas pressure is a result of all the baryons in the ejecta, which is usually defined as $P_\mathrm{ideal} = \dfrac{N k_b T}{v}$, where $N$ is the total number of baryons present. The total number of particles comes from the abundance of species $Y_i = \dfrac{n_i}{n_B}$, where $n_i = \dfrac{N_i}{v}$. Note that $n_B$ is the number density of baryons present. Thus, we can now calculate the ideal gas pressure: For a given species i,
 $$ P_i = Y_i n_B k_b T  = Y_i \rho k_b T$$ Now since $\rho = m_p n_B$, we then can write $P_i = \dfrac{Y_i \rho k_b T}{m_p}$. Putting all the ideal gas components together, we can write 
 $$ P_{ideal} = \sum_{i=0}^{Z} P_i + \dfrac{Y_e \rho k_b T}{m_p} $$ The total pressure, written with $\tilde{Y}$, is:
 
 \begin{align}
-	P_{tot} = \dfrac{a T^4}{3} + \dfrac{\tilde{Y} \rho k_b T}{m_p}
+	P_\mathrm{tot} = \dfrac{a T^4}{3} + \dfrac{\tilde{Y} \rho k_b T}{m_p}
 \end{align} 
 
 Finally, we can write $\dot{T}$ in terms of known values as 
 
 \begin{align}
-	\dfrac{dT}{dt} = \dot{T} = \dfrac{ \left(\dfrac{4 a T^4}{3} + \dfrac{\tilde{Y} \rho k_b T}{m_p} \right) \dfrac{\dot{\rho}}{\rho ^2} + \dot{q}_{nuc} - \dfrac{3 k_b}{2 m_p} T \dot{\tilde{Y}} \hspace{.09in})} { \left( \dfrac{4a T^3}{\rho}  + \dfrac{3 k_b}{2 m_p} \tilde{Y} \right)}
+	\dfrac{dT}{dt} = \dot{T} = \dfrac{ \left(\dfrac{4 a T^4}{3} + \dfrac{\tilde{Y} \rho k_b T}{m_p} \right) \dfrac{\dot{\rho}}{\rho ^2} + \dot{q}_{nuc} - \dfrac{3 k_b}{2 m_p} T \dot{\tilde{Y}}} { \left( \dfrac{4a T^3}{\rho}  + \dfrac{3 k_b}{2 m_p} \tilde{Y} \right)}
 \end{align}
-With this equation, we know that the temperature evolution is dependent on $Y_i, Y_e, \rho, T, \dot{q_{nuc}, \dot{\rho}}$. Note that $\dot{\tilde{Y}}$ is not the most important calculation here as it is presumed to be rather small. While it can be calculated by simply finding the change in the elemental abundance over time, it is set to 0 for convenience.\\
-Now while we did define $\dfrac{dT}{dt}$ above, we can further simplify our expression by removing the density. Since $\rho = \rho_0 \left(\dfrac{t}{t_0}\right)^{-3}$ and $\dot{\rho} = \dfrac{-3 \rho}{t}$, we can rewrite equation (11) as:
+
+With this equation, we know that the temperature evolution is dependent on $Y_i, Y_e, \rho, T, \dot{q_{nuc}, \dot{\rho}}$. Note that $\dot{\tilde{Y}}$ is not calculated or calculated only through a simple derivative of the form $\dot{\tilde{Y}} = \dfrac{d \tilde{Y}} {dt} $. This is because, for late times, the nuclear heating has cooled to the point where elemental abundances are approximately constant. Thus, for convenience, the calculations often set $\dot{\tilde{Y}} = 0$. \\
+
+We can further simplify our above expression by removing the density. Since our ejecta material is assumed to be homologous,  $\rho = \rho_0 \left(\dfrac{t}{t_0}\right)^{-3}$ and $\dot{\rho} = \dfrac{-3 \rho}{t}$, we can rewrite equation (11) as:
 
 \begin{align}
 	\dfrac{dT}{dt} =  \dfrac{ -\left( \dfrac{4aT^4}{3 \rho_0} \left (\dfrac{t}{t_0} \right)^3 + \dfrac{k_b T \tilde{Y}}{m_p} \right) \dfrac{3}{t} - \dfrac{3 k_b T \tilde{Y}}{2 m_p} \dfrac{\dot{\tilde{Y}}}{\tilde{Y}} + \dot{q}_{nuc} } {  \left( \dfrac{4 a T^3}{\rho_0} \dfrac{t}{t_0}^3 + \dfrac{3 k_b \tilde{Y}}{2 m_p}\right) }
 \end{align}
 
-The above equation is the solution since it was assumed that the density, and therefore its derivative, were homologous. Thus, we now have $\dot{T}$ is a function of $(T,t,\tilde{Y}, \dot{\tilde{Y}},\dot{q}_{nuc})$, which are all outputs of Skynet, except for $\dot{\tilde{Y}}$, which is calculated from taking the derivative of the abundances outputted. T is in units of $GK$, t is in $sec$, $\tilde{Y}$ is unitless, $\dot{\tilde{Y}}$ is in units of $\dfrac{1}{sec}$, $\dot{q}_{nuc}$ is initially in $\dfrac{erg}{sec g}$ but later converted to $\dfrac{J}{kg sec}$, and $\rho_0$ is initially in $\dfrac{g}{{cm}^3}$ but is later turned into $\dfrac{kg}{m^3}$. \\
+The above equation is the solution since it was assumed that the density, and therefore its derivative, were homologous. Homologous means the material, to first order at least, has the same properties such as temperature and density throughout.  Thus, we now have $\dot{T}$ is a function of $(T,t,\tilde{Y}, \dot{\tilde{Y}},\dot{q}_{nuc})$, which are all outputs of Skynet, except for $\dot{\tilde{Y}}$, which is calculated from taking the derivative of the abundances outputted. $T$ is in units of $\mathrm{GK}$, $t$ is in $\mathrm{sec}$, $\tilde{Y}$ is unitless,                $\dot{\tilde{Y}}$ is in units of $\dfrac{1}{\mathrm{sec}}$, $\dot{q}_{\mathrm{nuc}}$ is initially in $\dfrac{\mathrm{erg}}{\mathrm{sec g}}$ but later converted to $\dfrac{J}{\mathrm{kg sec}}$, and $\rho_0$ is initially in $\dfrac{\mathrm{g}}{{\mathrm{cm}}^3}$ but is later turned into $\dfrac{\mathrm{kg}}{\mathrm{m}^3}$. \\
 
 
 \begin{figure}[h!]
-  \includegraphics[scale = .8]{linear_temp.png}
+  \includegraphics[scale = .7]{linear_temp.png}
   \centering
   \caption{Plot of temperature vs time after applying the radiation-based, adiabatic model. Notice how it becomes fully linear in log-log space.}
 \end{figure} 
 
-
 \begin{figure}[h!]
-  \includegraphics[scale = .8]{photon_only.png}
+  \includegraphics[scale = .7]{photon_only.png}
   \centering
   \caption{Plot of temperature vs time after applying the photon-gas, non-adiabatic model. Notice how there is no interruption in the linearity of the temperature/time plot in log-log space.}
+\end{figure} 
+
+\begin{figure}[H]
+  \includegraphics[scale = .7]{photon_baryon.png}
+  \centering
+  \caption{Plot of temperature vs time for an ejecta with a radiation, photon gas, and baryon component. For the same dataset as the other temperature evolution models, this new extrapolation varies slightly relative to the radiation-only model. In other words, the orange line varies less than a magnitude in temperature relative to the original extrapolation. }
 \end{figure} 
 
 \pagebreak
@@ -483,7 +510,7 @@ We learned that isoelectronic states cannot be used to simplify the spectral ana
 
 \subsection{Main Results from Isotopic Abundance Studies}
 
-WHILE THIS SECTION IS NOT FULLY FINISHED AS THE RESEARCH IS NOT FINISHED, IT WILL SOON BE FILLED.
+%WHILE THIS SECTION IS NOT FULLY FINISHED AS THE RESEARCH IS NOT FINISHED, IT WILL SOON BE FILLED.
 
 
 The electron fraction is the density of electrons in the merger material relative to the total baryonic density. The electron fraction consists of the free and bound electrons, and factors such as neutrino irradiation can lower the number of neutrons present and increase the electron fraction. Thus, it is imperative to figure out what are the appropriate input parameters into Skynet-electron fraction, entropy, and dynamical timescale- that would result in drastic changes to the abundances. In other words, what are the cutoffs after which the abundance values drop below a certain threshold, where the threshold helps determine its significance to the material and its light curve. 
@@ -497,10 +524,9 @@ This current work fits into two sections of published literature. The first one 
 Our work can be extended by removing uncertainty in the atomic models used by these various kilonova groups. Since our work will figure out what differs in these groups as well as attempt to study key charge states in a lab setting, our work will bring more consistency to these models and determine whether the varying models have any impact at all. This will be done through using the atomic models, charge state abundances, radiative transport, and opacity/light curve calculations. 
 The work can be improved by cleaning up the code, making it more user friendly and mutable, and accessible to more coding languages. We should also check our abundance calculations with numerous groups instead of just Dr. Fontes’. Finally, adding these codes as a module to Skynet would be rather beneficial in having one full code that starts with nuclear data and the r-process and uses atomic data to fully generate a light curve
 
-\bibliography{References.bib}
+\bibliography{references_technote.bib}
 
-\nocite{fontes2017linesmeared}
-\nocite{lippuner2017skynet}
+%\cite{johnson_2017}
 
 
 \end{document}
