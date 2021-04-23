@@ -9,22 +9,22 @@
 \contentsline {subsection}{\numberline {2.1}Introduction to Skynet}{8}
 \contentsline {subsection}{\numberline {2.2}Extrapolating Temperature as a Function of Time from Skynet}{9}
 \contentsline {subsection}{\numberline {2.3}Solving the Saha Equation}{15}
-\contentsline {subsection}{\numberline {2.4}Charge State Abundance Evolution}{16}
-\contentsline {subsection}{\numberline {2.5}Lanthanide Electronic Configurations and Charge States}{20}
-\contentsline {section}{\numberline {3}The Effect of Ye on Isotopic/Elemental Abundances}{21}
-\contentsline {subsection}{\numberline {3.1}What is Ye?}{21}
-\contentsline {subsection}{\numberline {3.2}Isotopic Abundances vs Ye}{22}
-\contentsline {subsection}{\numberline {3.3}Defining a Ye Cutoff}{22}
-\contentsline {subsection}{\numberline {3.4}Studies of the Ye Cutoff vs. Skynet Parameters}{23}
+\contentsline {subsection}{\numberline {2.4}Charge State Abundance Evolution}{15}
+\contentsline {subsection}{\numberline {2.5}Lanthanide Electronic Configurations and Charge States}{19}
+\contentsline {section}{\numberline {3}The Effect of $Y_e$ on Isotopic/Elemental Abundances}{21}
+\contentsline {subsection}{\numberline {3.1}What is $Y_e$?}{21}
+\contentsline {subsection}{\numberline {3.2}Isotopic Abundances vs $Y_e$}{21}
+\contentsline {subsection}{\numberline {3.3}Defining a $Y_e$ Cutoff}{22}
+\contentsline {subsection}{\numberline {3.4}Studies of the $Y_e$ Cutoff vs. Skynet Parameters}{23}
 \contentsline {section}{\numberline {4}Future Work}{23}
-\contentsline {subsection}{\numberline {4.1}Neodymium and Samarium Abundance Dependence on Parameters based on Fontes' Work}{23}
-\contentsline {subsection}{\numberline {4.2}Models Used for Atomic Modeling}{24}
-\contentsline {subsection}{\numberline {4.3}Radiative Transfer Codes}{24}
-\contentsline {subsection}{\numberline {4.4}Generating Our Own Light Curves}{24}
+\contentsline {subsection}{\numberline {4.1}Neodymium and Samarium Abundance Dependence on Skynet Parameters}{23}
+\contentsline {subsection}{\numberline {4.2}Atomic Structure Codes}{23}
+\contentsline {subsection}{\numberline {4.3}Radiative Transfer Codes}{23}
+\contentsline {subsection}{\numberline {4.4}Generating Our Own Light Curves}{23}
 \contentsline {subsection}{\numberline {4.5}Comparing Results}{24}
 \contentsline {subsection}{\numberline {4.6}Experiments to Finding Key Atomic Data}{24}
-\contentsline {section}{\numberline {5}Conclusion}{25}
-\contentsline {subsection}{\numberline {5.1}Main Results from Charge State Abundance Studies}{25}
-\contentsline {subsection}{\numberline {5.2}Main Results from Isotopic Abundance Studies}{25}
-\contentsline {subsection}{\numberline {5.3}How Does This Work Fit Into Published Literature}{25}
+\contentsline {section}{\numberline {5}Conclusion}{24}
+\contentsline {subsection}{\numberline {5.1}Main Results from Charge State Abundance Studies}{24}
+\contentsline {subsection}{\numberline {5.2}Main Results from Isotopic Abundance Studies}{24}
+\contentsline {subsection}{\numberline {5.3}How Does This Work Fit Into Published Literature}{24}
 \contentsline {subsection}{\numberline {5.4}Outlook- How Can This Work Be Extended and Improved Upon?}{25}
