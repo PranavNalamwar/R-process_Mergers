@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.23)  23 APR 2021 02:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.23)  23 APR 2021 17:07
 entering extended mode
 **./Technote_V-3.tex
 (Technote_V-3.tex
@@ -573,18 +573,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 cfg")) (Technote_V-3.aux)
 \openout1 = `Technote_V-3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 \c@maskedRefs=\count138
 
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\apacite\english.ap
@@ -704,132 +704,139 @@ Package caption Info: End \AtBeginDocument code.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 25.
+LaTeX Font Info:    Try loading font information for U+msa on input line 26.
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 25.
+LaTeX Font Info:    Try loading font information for U+msb on input line 26.
 ("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (Technote_V-3.toc [1
-
-{C:/Users/prana/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
+) (Technote_V-3.toc)
 \tf@toc=\write4
 \openout4 = `Technote_V-3.toc'.
 
- [2]
+ [1
+
+{C:/Users/prana/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Overfull \hbox (18.89413pt too wide) in paragraph at lines 40--41
+\OT1/cmr/m/n/10.95 formed af-ter the Big Bang. \OT1/cmtt/m/n/10.95 (https://jou
+rnals.aps.org/rmp/abstract/10.1103/RevModPhys.29.547)
+ []
+
 <periodic_table.png, id=19, 3011.25pt x 2107.875pt>
 File: periodic_table.png Graphic file (type png)
 <use periodic_table.png>
 Package pdftex.def Info: periodic_table.png  used on input line 47.
 (pdftex.def)             Requested size: 483.69687pt x 338.5856pt.
- [3 <./periodic_table.png>]
+[3 <./periodic_table.png>]
 <nuclides_chart.png, id=28, 742.775pt x 501.875pt>
 File: nuclides_chart.png Graphic file (type png)
 <use nuclides_chart.png>
 Package pdftex.def Info: nuclides_chart.png  used on input line 56.
 (pdftex.def)             Requested size: 371.38658pt x 250.93687pt.
  [4 <./nuclides_chart.png (PNG copy)>]
-<GW170817_pic.png, id=32, 828.84656pt x 405.76593pt>
-File: GW170817_pic.png Graphic file (type png)
-<use GW170817_pic.png>
-Package pdftex.def Info: GW170817_pic.png  used on input line 70.
-(pdftex.def)             Requested size: 414.42226pt x 202.88246pt.
-[5 <./GW170817_pic.png>]
-<light_curve.png, id=37, 762.59906pt x 490.83376pt>
+<light_curve.png, id=32, 762.59906pt x 490.83376pt>
 File: light_curve.png Graphic file (type png)
 <use light_curve.png>
-Package pdftex.def Info: light_curve.png  used on input line 82.
+Package pdftex.def Info: light_curve.png  used on input line 73.
 (pdftex.def)             Requested size: 483.69687pt x 311.32396pt.
-<kasen_curves.png, id=38, 788.19469pt x 359.09157pt>
-File: kasen_curves.png Graphic file (type png)
-<use kasen_curves.png>
-Package pdftex.def Info: kasen_curves.png  used on input line 90.
-(pdftex.def)             Requested size: 483.69687pt x 220.36604pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <./light_curve.png>]
-<level_pic.png, id=43, 618.05907pt x 437.38406pt>
+<kasen_curves.png, id=33, 788.19469pt x 359.09157pt>
+File: kasen_curves.png Graphic file (type png)
+<use kasen_curves.png>
+Package pdftex.def Info: kasen_curves.png  used on input line 82.
+(pdftex.def)             Requested size: 483.69687pt x 220.36604pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5] [6 <./light_curve.png> <./kasen_curves.png>]
+<GW170817_pic.png, id=43, 828.84656pt x 405.76593pt>
+File: GW170817_pic.png Graphic file (type png)
+<use GW170817_pic.png>
+Package pdftex.def Info: GW170817_pic.png  used on input line 94.
+(pdftex.def)             Requested size: 414.42226pt x 202.88246pt.
+<level_pic.png, id=44, 618.05907pt x 437.38406pt>
 File: level_pic.png Graphic file (type png)
 <use level_pic.png>
-Package pdftex.def Info: level_pic.png  used on input line 102.
+Package pdftex.def Info: level_pic.png  used on input line 106.
 (pdftex.def)             Requested size: 483.69687pt x 342.31277pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <./kasen_curves.png>] [8 <./level_pic.png>]
+[7 <./GW170817_pic.png>] [8 <./level_pic.png>]
 <skynet_non_linear.png, id=54, 406.51875pt x 283.0575pt>
 File: skynet_non_linear.png Graphic file (type png)
 <use skynet_non_linear.png>
-Package pdftex.def Info: skynet_non_linear.png  used on input line 121.
+Package pdftex.def Info: skynet_non_linear.png  used on input line 125.
 (pdftex.def)             Requested size: 304.8883pt x 212.29259pt.
 <elemental.png, id=55, 614.295pt x 283.0575pt>
 File: elemental.png Graphic file (type png)
 <use elemental.png>
-Package pdftex.def Info: elemental.png  used on input line 126.
+Package pdftex.def Info: elemental.png  used on input line 131.
 (pdftex.def)             Requested size: 399.287pt x 183.98518pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
 [9 <./skynet_non_linear.png> <./elemental.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 182--185
+Underfull \hbox (badness 10000) in paragraph at lines 188--191
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--185
+Underfull \hbox (badness 10000) in paragraph at lines 188--191
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 200--202
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 209--211
+Underfull \hbox (badness 10000) in paragraph at lines 206--208
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+Underfull \hbox (badness 10000) in paragraph at lines 215--217
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
 
  []
 
 <linear_temp.png, id=75, 439.6425pt x 283.0575pt>
 File: linear_temp.png Graphic file (type png)
 <use linear_temp.png>
-Package pdftex.def Info: linear_temp.png  used on input line 248.
+Package pdftex.def Info: linear_temp.png  used on input line 254.
 (pdftex.def)             Requested size: 307.74765pt x 198.13889pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -837,7 +844,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <photon_only.png, id=76, 553.06625pt x 283.0575pt>
 File: photon_only.png Graphic file (type png)
 <use photon_only.png>
-Package pdftex.def Info: photon_only.png  used on input line 254.
+Package pdftex.def Info: photon_only.png  used on input line 260.
 (pdftex.def)             Requested size: 387.14374pt x 198.13889pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -845,46 +852,25 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <photon_baryon.png, id=77, 521.95pt x 283.0575pt>
 File: photon_baryon.png Graphic file (type png)
 <use photon_baryon.png>
-Package pdftex.def Info: photon_baryon.png  used on input line 260.
+Package pdftex.def Info: photon_baryon.png  used on input line 266.
 (pdftex.def)             Requested size: 365.3625pt x 198.13889pt.
 [13] [14 <./linear_temp.png> <./photon_only.png> <./photon_baryon.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
 
  []
 
 
-("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.
-sty"
-File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 282.
+Underfull \hbox (badness 10000) in paragraph at lines 285--287
 
-
-("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 282.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 282.
-
-
-("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 282.
-
-Overfull \hbox (22.1984pt too wide) in paragraph at lines 286--287
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (41.9086pt too wide) in paragraph at lines 287--288
-[][][][][][][][][][][][][][][][][][][][][][][][] 
+Underfull \hbox (badness 10000) in paragraph at lines 285--287
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--297
+Underfull \hbox (badness 10000) in paragraph at lines 289--291
 
  []
 
@@ -893,42 +879,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 298--299
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--303
+
+ []
+
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 300--301
+Underfull \hbox (badness 10000) in paragraph at lines 314--315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--309
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--309
+Underfull \hbox (badness 10000) in paragraph at lines 329--330
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--313
+Underfull \hbox (badness 10000) in paragraph at lines 331--334
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--336
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--343
 
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 320--321
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 322--325
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
-
- []
-
-[17]
 Underfull \hbox (badness 10000) in paragraph at lines 351--352
 
  []
@@ -939,29 +925,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 353--354
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--358
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.
+sty"
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 366.
 
+
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 366.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 366.
+
+
+("C:\Users\prana\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 366.
+
+Overfull \hbox (22.1984pt too wide) in paragraph at lines 370--371
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[17]
+Overfull \hbox (41.9086pt too wide) in paragraph at lines 371--372
+[][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--360
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 365--367
+Underfull \hbox (badness 10000) in paragraph at lines 379--380
 
  []
 
 <samarium.png, id=101, 389.455pt x 283.0575pt>
 File: samarium.png Graphic file (type png)
 <use samarium.png>
-Package pdftex.def Info: samarium.png  used on input line 371.
+Package pdftex.def Info: samarium.png  used on input line 385.
 (pdftex.def)             Requested size: 292.09053pt x 212.29259pt.
 <total.png, id=102, 724.7075pt x 283.0575pt>
 File: total.png Graphic file (type png)
 <use total.png>
-Package pdftex.def Info: total.png  used on input line 378.
+Package pdftex.def Info: total.png  used on input line 392.
 (pdftex.def)             Requested size: 471.05429pt x 183.98518pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -969,10 +976,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <neutral.png, id=103, 873.2625pt x 301.125pt>
 File: neutral.png Graphic file (type png)
 <use neutral.png>
-Package pdftex.def Info: neutral.png  used on input line 385.
+Package pdftex.def Info: neutral.png  used on input line 399.
 (pdftex.def)             Requested size: 523.96153pt x 180.67638pt.
 
-Overfull \hbox (40.26466pt too wide) in paragraph at lines 385--386
+Overfull \hbox (40.26466pt too wide) in paragraph at lines 399--400
 [][] 
  []
 
@@ -982,10 +989,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <plus_one.png, id=104, 873.2625pt x 301.125pt>
 File: plus_one.png Graphic file (type png)
 <use plus_one.png>
-Package pdftex.def Info: plus_one.png  used on input line 391.
+Package pdftex.def Info: plus_one.png  used on input line 405.
 (pdftex.def)             Requested size: 523.96153pt x 180.67638pt.
 
-Overfull \hbox (40.26466pt too wide) in paragraph at lines 391--392
+Overfull \hbox (40.26466pt too wide) in paragraph at lines 405--406
 [][] 
  []
 
@@ -996,20 +1003,20 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <configurations.png, id=116, 788.9475pt x 262.73157pt>
 File: configurations.png Graphic file (type png)
 <use configurations.png>
-Package pdftex.def Info: configurations.png  used on input line 404.
+Package pdftex.def Info: configurations.png  used on input line 418.
 (pdftex.def)             Requested size: 512.80978pt x 170.77348pt.
 
-Overfull \hbox (29.11292pt too wide) in paragraph at lines 404--405
+Overfull \hbox (29.11292pt too wide) in paragraph at lines 418--419
 [][] 
  []
 
 <isoelectronic.png, id=117, 649.42625pt x 286.06876pt>
 File: isoelectronic.png Graphic file (type png)
 <use isoelectronic.png>
-Package pdftex.def Info: isoelectronic.png  used on input line 409.
+Package pdftex.def Info: isoelectronic.png  used on input line 423.
 (pdftex.def)             Requested size: 389.65875pt x 171.64258pt.
 [20 <./configurations.png> <./isoelectronic.png>]
-Overfull \hbox (1.31462pt too wide) in paragraph at lines 421--422
+Overfull \hbox (1.31462pt too wide) in paragraph at lines 435--436
 \OT1/cmr/m/n/10.95 low what is needed for suf-fi-cient r-process events. \OT1/c
 mtt/m/n/10.95 (https://iopscience.iop.org/article/10.3847/ 
  []
@@ -1017,12 +1024,12 @@ mtt/m/n/10.95 (https://iopscience.iop.org/article/10.3847/
 <Ye_time.png, id=123, 406.51875pt x 283.0575pt>
 File: Ye_time.png Graphic file (type png)
 <use Ye_time.png>
-Package pdftex.def Info: Ye_time.png  used on input line 425.
+Package pdftex.def Info: Ye_time.png  used on input line 439.
 (pdftex.def)             Requested size: 304.8883pt x 212.29259pt.
 <abun_vs_ye_temp.png, id=124, 574.145pt x 279.0425pt>
 File: abun_vs_ye_temp.png Graphic file (type png)
 <use abun_vs_ye_temp.png>
-Package pdftex.def Info: abun_vs_ye_temp.png  used on input line 438.
+Package pdftex.def Info: abun_vs_ye_temp.png  used on input line 452.
 (pdftex.def)             Requested size: 344.48965pt x 167.42679pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1030,7 +1037,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <summed.png, id=125, 489.83pt x 279.0425pt>
 File: summed.png Graphic file (type png)
 <use summed.png>
-Package pdftex.def Info: summed.png  used on input line 445.
+Package pdftex.def Info: summed.png  used on input line 459.
 (pdftex.def)             Requested size: 293.90025pt x 167.42679pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1038,35 +1045,55 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <sm_nd_day1.png, id=126, 400.49625pt x 279.0425pt>
 File: sm_nd_day1.png Graphic file (type png)
 <use sm_nd_day1.png>
-Package pdftex.def Info: sm_nd_day1.png  used on input line 452.
+Package pdftex.def Info: sm_nd_day1.png  used on input line 466.
 (pdftex.def)             Requested size: 300.37144pt x 209.28136pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [21 <./Ye_time.png>] [22 <./abun_vs_ye_temp.png> <./summed.png> <./sm_nd_day1.p
 ng>]
-Overfull \hbox (88.30493pt too wide) in paragraph at lines 480--481
+Underfull \hbox (badness 10000) in paragraph at lines 488--491
+
+ []
+
+[23]
+Overfull \hbox (19.32068pt too wide) in paragraph at lines 510--511
 \OT1/cmr/m/n/10.95 lated. These groups in-clude Tanaka et al.\OT1/cmtt/m/n/10.9
-5 (https://iopscience.iop.org/article/10.3847/1538-4357/aaa0cb/meta)
+5 (https://iopscience.iop.org/article/10.3847/1538-4357/ 
  []
 
 
-Overfull \hbox (14.82814pt too wide) in paragraph at lines 480--481
-\OT1/cmr/m/n/10.95 , Met-zger \OT1/cmtt/m/n/10.95 (https://link.springer.com/co
-ntent/pdf/10.1007/s41114-019-0024-0.pdf)\OT1/cmr/m/n/10.95 , and Kasen
+Overfull \hbox (34.23315pt too wide) in paragraph at lines 510--511
+\OT1/cmtt/m/n/10.95 aaa0cb/meta) \OT1/cmr/m/n/10.95 , Met-zger \OT1/cmtt/m/n/10
+.95 (https://link.springer.com/content/pdf/10.1007/s41114-019-0024-0.pdf)\OT1/c
+mr/m/n/10.95 ,
  []
 
-[23] [24]
+
+Underfull \hbox (badness 10000) in paragraph at lines 510--511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--515
+
+ []
+
 No file Technote_V-3.bbl.
-[25] (Technote_V-3.aux) ) 
+[24] (Technote_V-3.aux) ) 
 Here is how much of TeX's memory you used:
  16664 strings out of 492973
  314374 string characters out of 3126692
- 545957 words of memory out of 3000000
+ 545423 words of memory out of 3000000
  20198 multiletter control sequences out of 15000+200000
  15766 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,16n,50p,1717b,1423s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 55i,16n,50p,1717b,1734s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/prana/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/prana/AppData/Loca
@@ -1093,9 +1120,9 @@ lic/amsfonts/cm/cmtt10.pfb><C:/Users/prana/AppData/Local/Programs/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/prana/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/prana/AppData/Loc
 al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Technote_V-3.pdf (25 pages, 2498638 bytes).
+Output written on Technote_V-3.pdf (24 pages, 2497635 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
+ 212 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  118 words of extra memory for PDF output out of 10000 (max. 10000000)
 

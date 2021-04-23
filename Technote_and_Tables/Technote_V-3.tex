@@ -15,6 +15,7 @@
 \bibliographystyle{apacite}
 \usepackage[font=scriptsize,labelfont=bf]{caption}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\setlength{\parindent}{0pt} %indent set to 0 for now due to convenience and order
 
 \begin{document}
 
@@ -25,7 +26,6 @@
 \maketitle
 
 \begin{abstract}
-
 This technical note is designed to go through the background for this project that utilizes nuclear astrophysics and atomic physics, but it will also cover the reasoning and logic behind each critical function used in the code with pseudo-code sections as well as numerous graphics that depict certain conditions or parameter testings. The technote will try to walk through the research by covering each step chronologically. The beginning of the technote, as seen above, presents some information about the background and goals of the project while the rest of the chapters will cover one crucial aspect of research starting with the charge state abundance calculations. After that procedure is explained, the studies on how the electron fraction, Ye, affects the calculated abundances will be addressed. While this is the extent of the research conducted thus far, there is much to be done in the future. Finally, the conclusion wraps everything together before the bibliography is presented.
 
 \end{abstract}
@@ -37,9 +37,9 @@ This technical note is designed to go through the background for this project th
 
 \subsection{Stellar Nucleosynthesis}
 
-Nucleosynthesis is the process by which the elements of the universe are created using only light nuclei formed after the Big Bang. \url{(https://www.energy.gov/science/doe-explainsnucleosynthesis)}.  
+Nucleosynthesis is the process by which the elements of the universe are created using only light nuclei formed after the Big Bang. \url{(https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.29.547)} and \url{https://ui.adsabs.harvard.edu/abs/1955ApJ...121..144C/abstract}.  
 
-The first stars (population III stars) were composed of primarily hydrogen and helium, and due to their massive sizes and pressures, were able to undergo nuclear fusion reactions and release heavier elements through supernovae. These elements include lithium, carbon, and other elements heavier than hydrogen and helium; when they are released by the supernovae, they enrich the chemical composition of the gas that will become part of a star in the future. This process continues to this day. \url{(https://www.physics.uu.se/ \\ research/astronomy-and-space-physics/research/galaxies/first-stars-galaxies)}. 
+The first stars (population III stars) were composed of primarily hydrogen and helium, and due to their massive sizes and pressures, were able to undergo nuclear fusion reactions and release heavier elements through supernovae. These elements include lithium, carbon, and other elements heavier than hydrogen and helium; when they are released by the supernovae, they enrich the chemical composition of the gas that will become part of a star in the future. This process continues to this day. \url{(https://www.physics.uu.se/ research/astronomy-and-space-physics/research/galaxies/\\first-stars-galaxies)}. 
 
 Based on numerous observations of various stars, there are several types of stars, all of which undergo unique fusion reactions. For example, stars of roughly one solar mass stop fusing soon after the Carbon-Nitrogen-Oxygen (CNO) cycle is completed (check). As for heavier stars (20 to 50 solar masses), they will undergo numerous fusion reaction phases and layers before stopping at iron fusion. The last element formed in the core of the star is iron because the binding energy of Fe-56 is the largest possible, meaning fusion two of these nuclei is no longer energy efficient. Once that happens, a supernova event will proceed. Supernovae are thought to produce some elements heavier than iron through a neutron capture process. 
 
@@ -50,7 +50,7 @@ Based on numerous observations of various stars, there are several types of star
 
 \subsection{The r-process}
 
-Supernovae are considered a potential location for neutron capture as there is a fairly dense region of neutrons, which is necessary for the capture process. However, to create the heaviest elements in the universe, a highly dense region of neutrons are required, which facilitates the rapid neutron capture process, or r-process. It is considered rapid because the slow neutron capture process, or s-process, only involves nuclei absorbing one nuclei at a time before beta decaying. In comparison, the r-process involves seed nuclei such as iron-56 absorbing several neutrons in quick succession before eventually beta decaying back to stability, thereby resulting in nuclei that have higher charge and overall mass than the beginning. There are different nuclei made during this process, all of which can be found in the chart of the nuclides,but simply put, this is how elements such as gold and uranium are theorized to have been produced in nature. While supernovae certainly contribute a fraction of the abundances of these elements found in nature, a better candidate for the r-process would be neutron star mergers. \url{(http://greta.lbl.gov/science/r-process)}. The primary reasoning for this is because the neutrino flux present in supernovae, especially from the resulting stellar remnant, is high enough to reduce the number of neutrons present in the ejected material. As a result, the density of neutrons drop below what is needed to produce heavy r-process elements. In contrast, neutron star mergers can result in a wide variety of neutrino fluxes including low values.
+Supernovae are considered a potential location for neutron capture as there is a fairly dense region of neutrons, which is necessary for the capture process. However, to create the heaviest elements in the universe, a highly dense region of neutrons are required, which facilitates the rapid neutron capture process, or r-process. It is considered rapid because the slow neutron capture process, or s-process, only involves nuclei absorbing one nuclei at a time before beta decaying. In comparison, the r-process involves seed nuclei such as iron-56 absorbing several neutrons in quick succession before eventually beta decaying back to stability, thereby resulting in nuclei that have higher charge and overall mass than the beginning. There are different nuclei made during this process, all of which can be found in the chart of the nuclides,but simply put, this is how elements such as gold and uranium are theorized to have been produced in nature. While supernovae certainly contribute a fraction of the abundances of these elements found in nature, a better candidate for the r-process would be neutron star mergers. \url{(https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.93.015002)}. The primary reasoning for this is because the neutrino flux present in supernovae, especially from the resulting stellar remnant, is high enough to reduce the number of neutrons present in the ejected material. As a result, the density of neutrons drop below what is needed to produce heavy r-process elements. In contrast, neutron star mergers can result in a wide variety of neutrino fluxes including low values.
 
 \begin{figure}[h!]
   \includegraphics[width=1\textwidth , scale = .5]{nuclides_chart.png}
@@ -59,36 +59,40 @@ Supernovae are considered a potential location for neutron capture as there is a
 
 \subsection{Neutron Star Mergers}
 
-Neutron star mergers (NSMs) are the coalescence of two dense balls of primarily neutrons typically only 10 km in diameter \url{(https://astronomy.swin.edu.au/cosmos/N/Neutron+Star)}. As these neutron stars are mainly neutrons due to their immense densities and composition (95\% and 5\% protons), a merger between the two provides a dense source of neutrons ideal for the r-process. The residual nuclei, most of it being Fe-56, would have gone through several neutron absorptions and beta decays in short time spans before becoming fully stable. There is some observational evidence hinting that NSMs are indeed the site for the r-process, most notably GW170817 and its resulting kilonova AT 2017gfo as well as GRB 170817A. 
+Neutron star mergers (NSMs) are the coalescence of two dense balls of primarily neutrons typically only 10 km in diameter \url{(https://www.annualreviews.org/doi/abs/10.1146/annurev-nucl\\-013120-114541)}. As these neutron stars are mainly neutrons due to their immense densities and composition (95\% and 5\% protons), a merger between the two provides a dense source of neutrons ideal for the r-process. The residual nuclei, most of it being Fe-56, would have gone through several neutron absorptions and beta decays in short time spans before becoming fully stable. There is some observational evidence hinting that NSMs are indeed the site for the r-process, most notably GW170817 and its resulting kilonova AT 2017gfo as well as GRB 170817A. 
 
-\subsection{GW170817 Event and AT2017gfo Event}
-
-GW170817 was a gravitational wave merger detection by the Laser Interferometer for Gravitational Wave Observatory (LIGO) on August 17th, 2017. LIGO states the mass range of these stars was between 1.17 and 1.60 solar masses \url{(https://www.ligo.org/detections/ \\ GW170817/paper/GW170817-PRLpublished.pdf)}. It was established that this gravitational wave detection was indeed a neutron star merger event due to its component masses as well as the associated gamma ray burst. While this in itself was the first ever gravitational wave detection for a non-black hole based merger, it was also important due to its two associated optical components. 
-First came a short Gamma Ray Burst (sGRB) approximately 1.7 seconds after the gravitational wave detection, also marking the first time gravitational waves and electromagnetic transients were both observed from the same astrophysical event. It also points to the existence of light emitting atoms, which is also indicated by the kilonova AT 2017gfo. A kilonova, coined by Brian Metzger \url{(https://link.springer.com/article/10.1007/s41114-019-0024-0)}, is the emission of light by the excited atoms created by the r-process. In the merger material, there is some density of electrons floating around. Also, atoms interact with these electrons as they undergo constant ionization and reionization, resulting in photon emission. This ultimately results in a kilonova, which is indicative of what elements and ionization states were created. 
-
-\begin{figure}[h!]
-  \includegraphics[scale = .5, width=1\textwidth]{GW170817_pic.png}
-  \caption{Image of NGC4993, the galaxy containing the GW170817 event (left). It is a composite of the discovery image on August 17th 2017 at 00:05:23 and g and r color images taken at .5 and 1.5 days post merger. The other image (right) is the same but 14 days post merger. }
-\end{figure}
 
 \subsection{Kilonovae Light Curves}
 
 Kilonovae are one of two electromagnetic transients produced by neutron star mergers. The kilonova light curve, which shows the brightness over time of the event, often over all wavelengths, is composed of various spectra. The spectra's source includes a variety of elements, isotopes, and ionization states, each of which can result in the emission of photons at different wavelengths. The overall composition of the merger material dictates the properties of the light curve, namely its overall brightness, how long it peaks, and the time it peaks \url{(https://iopscience.iop.org/article/10.3847/2041-8213/ \\ aa9029/pdf)}.
 
 The kilonova spectrum is composed of the spectra from the various elements in the mixture. These elements can be found in different charge states, such as neutral or +1 charge state. These charge states exist at certain temperatures, so many charge states can exist throughout the period the merger ejecta material cools. For a particular element existing in a particular charge state, there are many energy levels present that an electron can occupy, thereby resulting in transitions numbering in the thousands and above.
-Unfortunately, due to this large forest of various spectra, it is difficult to ascertain what elements in which ionization states were formed, so it is important to work backwards using models  \url{(https://iopscience.iop.org/article/10.3847/2041-8213/aa9029)}. The models can predict which groups of elements, whether it would be the transition metals or the lanthanides, are contributing certain spectral lines to the overall light curve. The lanthanides in particular are of course of great interest considering it is one of the least studied elements and the ones generated by r-process events \url{(https://arxiv.org/pdf/1702.02990.pdf)}.
+Unfortunately, due to this large forest of various spectra, it is difficult to ascertain what elements in which ionization states were formed, so it is important to work backwards using models  \url{(https://iopscience.iop.org/article/10.3847/2041-8213/aa9029)}. The models can predict which groups of elements, whether it would be the transition metals or the lanthanides, are contributing certain spectral lines to the overall light curve. The lanthanides in particular are of course of great interest considering it is one of the least studied elements and the ones generated by r-process events \url{(https://iopscience.iop.org/article/10.1088/0004-637X/775/1/18)}.
 
 \begin{figure}[h!]
   \includegraphics[width=1\textwidth]{light_curve.png}
-  \caption{UV,optical, and near IR light curves for AT2017 gfo. The solid lines represent models that account for r-process heating and opacities while the shapes show observations. Thr three graphs on the right depict the same light curve over ten days for the g,i, and H light bands.  }
+  \caption{UV,optical, and near IR light curves for AT2017 gfo. The solid lines represent models that account for r-process heating and opacities while the shapes show observations. Thr three graphs on the right depict the same light curve over ten days for the g,i, and H light bands. \url{(https://iopscience.iop.org/article/10.3847/2041-8213/aa8fc7)} }
 \end{figure}
 
-The spectra from lanthanides itself is rather complex given that each of these elements has numerous valence electrons, and hence numerous energy levels and ionization states present. However, through modeling, numerous studies have found that lanthanide abundances can have a measurable impact on the kilonova light curve \url{(https://arxiv.org/pdf/1402.4803.pdf and \\ https://arxiv.org/abs/1303.5787)}.
+The spectra from lanthanides itself is rather complex given that each of these elements has numerous valence electrons, and hence numerous energy levels and ionization states present. However, through modeling, numerous studies have found that lanthanide abundances can have a measurable impact on the kilonova light curve \url{(https://academic.oup.com/mnras/article/441/4/3444/1223590 and \\ https://iopscience.iop.org/article/10.1088/0004-637X/775/1/18)}.
+
 Specifically, it appears that a kilonova can be more “red” or blue” depending on the lanthanide abundances. If the abundance is high, then the light curve is more red since the large density of lanthanides helps suppress most of the UV and optical light present from the merger mixture \url{(https://link.springer.com/ \\ article/10.1007\%2Fs41114-019-0024-0)}. In other words, the material has a high lanthanide opacity since the lanthanides makes the material opaque at the stated wavelengths. Opacity is defined as how efficient merger material is at absorbing radiation. On the other hand, a low abundance mixture will result in a bluer kilonova, which means that the light curve peaks, or is strongest, in the optical band. The opacity of the lanthanides is low, so the light from the UV/optical components is much easier to observe. 
 
 \begin{figure}[h!]
   \includegraphics[width=1\textwidth]{kasen_curves.png}
   \caption{ Kilonova models for light curve(left). The graphic indicates the full bolometric luminosity vs days since merger for 10 days time. The various colors represent the lanthanide mass fraction present in the merger material, thus indicating that the lanthanide abundance can affect light curve on visible levels. The spectrum (right) shows the spectra observed from the merger at 4.5 days. Note that higher lanthanide fractions tend to shift the spectrum towards the IR. \url{(https://www-nature-com.proxy2.cl.msu.edu/articles/nature24453.pdf)} }
+\end{figure}
+
+\pagebreak
+
+\subsection{GW170817 Event and AT2017gfo Event}
+
+GW170817 was a gravitational wave merger detection by the Laser Interferometer for Gravitational Wave Observatory (LIGO) on August 17th, 2017. LIGO states the mass range of these stars was between 1.17 and 1.60 solar masses \url{(https://journals.aps.org/prl/abstract/10.1103/\\PhysRevLett.119.161101)}. It was established that this gravitational wave detection was indeed a neutron star merger event due to its component masses as well as the associated gamma ray burst. While this in itself was the first ever gravitational wave detection for a non-black hole based merger, it was also important due to its two associated optical components. 
+First came a short Gamma Ray Burst (sGRB) approximately 1.7 seconds after the gravitational wave detection, also marking the first time gravitational waves and electromagnetic transients were both observed from the same astrophysical event. It also points to the existence of light emitting atoms, which is also indicated by the kilonova AT 2017gfo. A kilonova, coined by Brian Metzger \url{(https://link.springer.com/article/10.1007\\/s41114-019-0024-0)}, is the emission of light by the excited atoms created by the r-process. In the merger material, there is some density of electrons floating around. Also, atoms interact with these electrons as they undergo constant ionization and reionization, resulting in photon emission. This ultimately results in a kilonova, which is indicative of what elements and ionization states were created. 
+
+\begin{figure}[h!]
+  \includegraphics[scale = .5, width=1\textwidth]{GW170817_pic.png}
+  \caption{Image of NGC4993, the galaxy containing the GW170817 event (left). It is a composite of the discovery image on August 17th 2017 at 00:05:23 and g and r color images taken at .5 and 1.5 days post merger. The other image (right) is the same but 14 days post merger. \url{(https://iopscience.iop.org/article/10.3847/2041-8213/aa9059)}}
 \end{figure}
 
 
@@ -113,17 +117,19 @@ It is important to calculate the charge state abundances since various charge st
 
 \subsection{Introduction to Skynet}
 
-Skynet, a nuclear-reaction network code for neutron star merger abundance calculations designed by Luke Roberts and Jonas Lippuner \url{(https://iopscience.iop.org/article/10.3847/\\1538-4365/aa94cb)}, is the starting point for the research. With certain initial parameters-- namely the electron fraction, dynamical time, and entropy-- we are able to calculate the abundances of various elements generated by neutron star mergers. The electron fraction is the abundance of electrons present in the material either orbiting nuclei or freely moving in the ejecta material. The dynamical time is the timescale on which the ejecta will expand while the entropy is classically defined as the disorder of the system.
+Skynet, a nuclear-reaction network code for neutron star merger abundance calculations designed by Luke Roberts and Jonas Lippuner \url{(https://iopscience.iop.org/article/10.3847/\\1538-4365/aa94cb)}, is the starting point for the research. With certain initial parameters-- namely the electron fraction, dynamical time, and entropy-- we are able to calculate the abundances of various elements generated by neutron star mergers. Also, Skynet is treated as a blackbox by only altering initial parameters. So the electron fraction is the abundance of electrons present in the material either orbiting nuclei or freely moving in the ejecta material. The dynamical time is the timescale on which the ejecta will expand while the entropy is classically defined as the disorder of the system.
 
-Note that abundances are measured in terms of the density or number of a given atom relative to the number or density of baryons present in the merger mixture. Skynet considers the nuclear data such as cross sections, the density of material and its temperature, and other factors to output this abundance information. It also outputs key data such as temperature, density, and electron fraction as functions of time. While this data is used for the charge state abundances, Skynet is treated as a blackbox beyond the use of altering initial parameters. The functions used for extracting data out of Skynet, primarily the abundance value ones since Skynet returns only isotopic abundances and we need elemental ones, is initialization().
+Note that abundances are measured in terms of the density or number of a given atom relative to the number or density of baryons present in the merger mixture. Skynet considers the nuclear data such as cross sections, the density of material and its temperature, and other factors to output this abundance information. Figure 6 is an example temperature-time plot outputted by Skynet. It also outputs key data such as temperature, density, and electron fraction as functions of time, which are used for the charge state abundance calculations. The functions used for extracting data out of Skynet, primarily the abundance value ones since Skynet returns only isotopic abundances and we need elemental ones, is initialization(). Once the isotopic abundances are summed together to form the elemental abundances, a graph such as figure 7 is made to show the abundance vs time. 
 
 \begin{figure}[h!]
   \includegraphics[scale = .75]{skynet_non_linear.png}
+  \centering
   \caption{Plot of temperature vs time with temperature in units of GK. This is data extracted directly from Skynet. For large times, Skynet truncates any temperature calculation, resulting in this flat curve in late times. Temperature ranges from $10^1 \hspace{.03 cm} GK$ to $10^{-4} \hspace{.03 cm} GK$.}
 \end{figure}
 
 \begin{figure}[h!]
   \includegraphics[scale = .65]{elemental.png}
+  \centering
   \caption{Plot of abundances for all lanthanides over time (left) based on output from Skynet. Note that the abundances at early times is noise considering there are values lower than $10-20$. Values become significant around $10^{-1}$ sec}
 \end{figure} 
 
@@ -145,7 +151,7 @@ where $T$ is the temperature in GK, and $t$ is the time in seconds. Using this s
 	\log{T'} = m \log{t} + log(T)
 \end{align}
 
-where $T$ is the current temperature, $t$ is the current time, and $T'$ is the next temperature value.  \\ \\
+where $T$ is the current temperature, $t$ is the current time, and $T'$ is the next temperature value. Once this temperature is extrapolated, a temperature-time plot like figure 8 is created.  \\\\
 
 \textbf{Photon Gas, Non-Adiabatic}: We now attempt to improve upon the first temperature evolution by assuming the composition consists of a photon gas, which implies that we can no longer use an adiabatic expansion here. Thus there is radiation and a photon gas. The radiation component refers to the photons that can do work on the system. The photon gas, on the other hand, refers to a collection of photons that acts like a gas, meaning it can be characterized by a pressure, temperature, volume, and entropy. We will derive a small change in temperature over a small change in time, which is later used in an ordinary differential equation solver to figure out the temperature evolution. These values are all specific values, so each extensive value is divided by the mass present. This $\frac{dT}{dt}$ is based purely off data from Skynet. We first consider the entropy:
 
@@ -180,10 +186,10 @@ $$ \dfrac{\dot{T}}{T} = \dfrac{\dot{Q} f \rho_0}{3 \lambda T^4} \left( \dfrac{t}
 \end{align}
 
 This equation includes the original temperature-time evolution, which is the power law term, and the photon gas component, which is the second part of the equation. We can see there is a clear distinction between these terms.  This 
-$\dot{T}$, an ODE, can be solved numerically to determine the temperature evolution.
+$\dot{T}$, an ODE, can be solved numerically to determine the temperature evolution, and the resulting graph is shown in figure 9.
 \\\\
 
-\textbf{Photon Gas and Baryon Component}: In this model, we now assume there is a radiation component, a photon gas component, as well as baryons that are part of this ejecta mixture. Due to the baryons, it is important to consider the pressures involved from radiation and the baryons themselves. All terms are specific values, meaning each extensive term is divided by the mass present. Let us first use the first law of thermodynamics to define the derivative of the energy $\dfrac{d \epsilon}{dt}$ as
+\textbf{Photon Gas and Baryon Component}: In this model, we now assume there is a radiation component, a photon gas component, as well as baryons and electrons that are part of this ejecta mixture. Due to the baryons, it is important to consider the pressures involved from radiation and the baryons themselves. All terms discussed are specific values, meaning each extensive term is divided by the mass present. Let us first use the first law of thermodynamics to define the derivative of the energy $\dfrac{d \epsilon}{dt}$ as
 
 \begin{align}
 	\dfrac{d \epsilon}{dt} = -P \dfrac{dv}{dt} + \dot{q}_\mathrm{nuc}
@@ -195,9 +201,9 @@ where $\epsilon, P, v, \dot{q}_\mathrm{nuc}$ are the energy of the system, the p
 	\dfrac{d \epsilon}{dt} = \dfrac{4a T^3}{\rho} \dot{T} - 			\dfrac{a T^4}{\rho^2}\dot{\rho} 
 \end{align}
 
-We can also write the energy in another way; both the photon gas and baryon components have energy values. The photon gas energy is given by $\epsilon_{\gamma} =\dfrac{a T^4}{\rho}$, where a is the radiation constant defined as $a = \dfrac{4 \sigma}{c}$ with units of $\dfrac{J}{m^3 {GK}^4}$.\\
+We can also write the energy in another way; both the photon gas and baryon/electrons components have energy values. The photon gas energy is given by $\epsilon_{\gamma} =\dfrac{a T^4}{\rho}$, where a is the radiation constant defined as $a = \dfrac{4 \sigma}{c}$ with units of $\dfrac{J}{m^3 {GK}^4}$.\\
 
-The baryon energy, which we will denote as the non-radiation energy, is given by $\epsilon_{non-rad} = \dfrac{3 k_B T}{2 m_p} Y_{non-rad}$. Now $k_B, m_p$ are the Boltzmann constant and the baryon mass, respectively. $Y_{non-rad}$ is just a placeholder abundance value to show the density of particles present. The sum of these energies, $\epsilon_{tot} = \epsilon_\gamma + \epsilon_{non-rad}$ will give us the total energy. 
+The baryon and electron energy, which we will denote as the non-radiation energy, is given by $\epsilon_{non-rad} = \dfrac{3 k_B T}{2 m_p} Y_{non-rad}$. Now $k_B, m_p$ are the Boltzmann constant and the baryon mass, respectively. $Y_{non-rad}$ is just a placeholder abundance value to show the density of particles present. The sum of these energies, $\epsilon_{tot} = \epsilon_\gamma + \epsilon_{non-rad}$ will give us the total energy. 
 \\
 
 From here, we can rewrite $Y_{non-rad}$ with the abundance values from the atoms and electrons as well as rewrite $\epsilon_{tot}$. This equation becomes:  
@@ -241,7 +247,7 @@ We can further simplify our above expression by removing the density. Since our 
 	\dfrac{dT}{dt} =  \dfrac{ -\left( \dfrac{4aT^4}{3 \rho_0} \left (\dfrac{t}{t_0} \right)^3 + \dfrac{k_b T \tilde{Y}}{m_p} \right) \dfrac{3}{t} - \dfrac{3 k_b T \tilde{Y}}{2 m_p} \dfrac{\dot{\tilde{Y}}}{\tilde{Y}} + \dot{q}_{nuc} } {  \left( \dfrac{4 a T^3}{\rho_0} \dfrac{t}{t_0}^3 + \dfrac{3 k_b \tilde{Y}}{2 m_p}\right) }
 \end{align}
 
-The above equation is the solution since it was assumed that the density, and therefore its derivative, were homologous. Homologous means the material, to first order at least, has the same properties such as temperature and density throughout.  Thus, we now have $\dot{T}$ is a function of $(T,t,\tilde{Y}, \dot{\tilde{Y}},\dot{q}_{nuc})$, which are all outputs of Skynet, except for $\dot{\tilde{Y}}$, which is calculated from taking the derivative of the abundances outputted. $T$ is in units of $\mathrm{GK}$, $t$ is in $\mathrm{sec}$, $\tilde{Y}$ is unitless,                $\dot{\tilde{Y}}$ is in units of $\dfrac{1}{\mathrm{sec}}$, $\dot{q}_{\mathrm{nuc}}$ is initially in $\dfrac{\mathrm{erg}}{\mathrm{sec g}}$ but later converted to $\dfrac{J}{\mathrm{kg sec}}$, and $\rho_0$ is initially in $\dfrac{\mathrm{g}}{{\mathrm{cm}}^3}$ but is later turned into $\dfrac{\mathrm{kg}}{\mathrm{m}^3}$. \\
+The above equation is the solution since it was assumed that the density, and therefore its derivative, were homologous. Homologous means the material, to first order at least, has the same properties such as temperature and density throughout.  Thus, we now have $\dot{T}$ is a function of $(T,t,\tilde{Y}, \dot{\tilde{Y}},\dot{q}_{nuc})$, which are all outputs of Skynet, except for $\dot{\tilde{Y}}$, which is calculated from taking the derivative of the abundances outputted. $T$ is in units of $\mathrm{GK}$, $t$ is in $\mathrm{sec}$, $\tilde{Y}$ is unitless,                $\dot{\tilde{Y}}$ is in units of $\dfrac{1}{\mathrm{sec}}$, $\dot{q}_{\mathrm{nuc}}$ is initially in $\dfrac{\mathrm{erg}}{\mathrm{sec g}}$ but later converted to $\dfrac{J}{\mathrm{kg sec}}$, and $\rho_0$ is initially in $\dfrac{\mathrm{g}}{{\mathrm{cm}}^3}$ but is later turned into $\dfrac{\mathrm{kg}}{\mathrm{m}^3}$. The resulting temperature-time plot from solving the ODE outlined in equation 12 is shown in figure 10. Relative to figures 8 and 9, there is a slight deviation of less than one magnitude. Nonetheless, this deviation does warrant calculating the charge state abundance values using this new temperature-time relationship. \\
 
 
 \begin{figure}[h!]
@@ -268,36 +274,8 @@ The above equation is the solution since it was assumed that the density, and th
 
 The Saha equation, named after Meghnad Saha, is designed to calculate the relative abundance between two charge states of a given element based on the current temperature and electron fraction present in the merger material \url{(https://archive.org/details/plasmachemistry00frid)}. Now we know that all the charge state abundances together form the full elemental abundance of a given element output by Skynet. This is crucial since all the relative abundances calculated by the Saha equation can be summed together and checked with the total elemental abundances from Skynet. Note that the Saha equation utilizes the ionization energy for each charge state, a value not easily attainable for the lanthanides due to their rarity and short half-lives. This difficulty also applies to the electron fraction, which is the density of electrons in the mixture relative to the total number of baryons present. The electron fraction $Y_e$ in the Saha equation is actually the free electron fraction $Y_{e,free}$, or the density of electrons that are freely moving instead of being in orbit about some nucleus in an atom. The saha and saha \_ mult classes go into depth about how to implement the Saha equation with these constraints in mind.  \\
 
-\noindent{\normalsize{\textbf{Pseudo Code}}}\\
-Basic Premise: We want to set up a way to calculate the electron fraction by considering the charge neutrality present in the merger material. With this, we guess some low and high values for a constant $Y_{e,free}$ and plug them into the bisection method. Then, using the bisection method, we find the optimal $Y_{e,free}$ for when a zero crossing occurs. Using this true value for $Y_{e,free}$, we then plug this into a function that returns all ionization
-state abundances for the elements of interest. 
 
-\begin{lstlisting}[language=Python]
-			
-Bisection Code: #Note all Ye guesses are in log space for convenience
 
-Guess Yef_high = 0 #Max Ye = 1 and log(1) = 0
-Guess Yef_low = neg 50 # Any significantly low lnYef will work
-
-if (Yef_high * Yef_low < 0): #Ensure parity are different to do bisection
-	for i in range(number of iterations desired):
-		mid = avg(high + low)
-		check mid*high and mid*low 
-		#Do check by multiplying values and finding the sign of each.
-		set new low or high depending on any sign changes		
-	Ye_free = avg(final_Yef_low + final_Yef_high) #gives final Yef
-	
-\end{lstlisting}
-
-\vspace{.5 cm}
-
-\subsection{Charge State Abundance Evolution}
-
-\indent This work requires us to know the charge state abundance values of each lanthanide or elements in the mixture. The reason behind this goal is because the lanthanides, at different temperatures and times, are found in a variety of charge states. Since these atoms ultimately emit the photons that make up the opacity curve and later the kilonova light curve, tracking the abundance of each type of atom in the merger mixture is necessary for accurately modeling the light curve. In other words, knowing these ionization state abundance values would allow us to develop an accurate opacity curve, which is later combined with photon transport calculations to eventually make the kilonova light curve.\\ 
-
-To actually calculate these abundance values, we first have to start off with Skynet's outputs. Skynet provides the temperature, density, and isotopic abundances vs time. The temperature has been evolved as outlined in section 2.2 while the isotopic abundances are summed together to form the elemental abundances for each element. The electron fraction vs time is also provided by Skynet, but to calculate the $Y_{e,free}$ portion of the $Y_{e,tot}$, we used the bisection method in the saha python class as outlined by the pseudo-code in section 2.3. The other part of the Ye, the $Y_{e,bound}$, is calculated in the latter part of section 2.4 via calculating the abundance of each charge state. With all these values and the ionization potentials of each lanthanides' various charge states, the Saha equation can be utilized to find all the ionization state abundances present. To do so, we use the abundance ratio on the left side of the Saha equation to our advantage. Since the equation relates two proximate charge state abundances, it is possible to calculate one ionization state abundance using the other value. Extending this logic and the fact that all the charge state abundances sum up to the elemental abundances provided by Skynet, we can write an equation that starts with the neutral abundance and calculate any desired abundance value. \\
-
-While trying to implement this logic, some challenges did arise. For one, calculating both parts of the electron fraction was difficult, especially since the electron fraction calculation outlined in section 2.3 does require some charge state abundance values in the first place. This issue was solved by developing a self-consistent solution in which we first assumed the $Y_{e,free}$ value, calculate the charge state abundance values using this $Y_{e,free}$ value, and then calculate the density of electrons present by assuming charge neutrality in the mixture. This process was done for two $Y_{e,free}$ values in order to perform a bisection to find the actual free electron fraction value. There were also issues where the normalization of these charge state abundances was not possible due to underflow/overflow of the abundance values at early times. To solve this issue, we decided to calculate the abundance values by choosing one state to normalize with instead of normalizing with all the states present. This allowed us to isolate the calculations such that we did not need to always rely on the abundance values of the nearly neutral charge states to calculate the nearly ionized states' abundances. The last major issue came from the ionization potential values. Due to the complexity of the lanthanides, most experimentally determined ionization potentials for the charge states were unavailable. As a result, we had to rely on the NIST database's values, some of which were experimental while others were based on atomic models. One such atomic model scheme is outlined here (\url{https://www.sciencedirect.com/science/article/abs/pii/S0092640X03000846}).  \\
 
 
 We start with the constraint on the element abundances of element $Z$, where the element is determined purely by the number of protons. Essentially, for a given time step, the sum of all ionization state abundances must equal the elemental abundance provided by Skynet. Technically, Skynet provides data in isotopic abundances, so the sum of the isotopic abundances of any element is the elemental abundance. The same principle applies to the charge states; the sum of the charge state abundances $Y_{Z,I}$ make up the elemental abundance $Y_Z$.
@@ -311,7 +289,7 @@ $$Y_{e,bound} = \sum_{Z=0}^{Z_{max}} \sum_{I=0}^{Z} (Z - I) Y_{Z,I}(t) = (1-f) Y
 $Z_{max}$ is for summing over all possible elements while the second sum is summing over all possible ionization states of Z. 
 \\The value of $f$ is introduced such that $Y_{e,free} = f \hspace{.1mm} Y_{e,tot}$, where $Y_{e,free}$ is the free electron fraction and $Y_{e,tot}$ is the total electron fraction in the mixture, both of which are fractions between 0 and 1. However, since $f$ is an expensive calculation since it must also be done self-consistently and does not have a large impact on the calculations, $f$ is set to 1 for convenience. \\
 
-Let's now take the Saha equation, which is converted to abundances rather than densities: 
+Let's now look at the Saha equation, which is converted to abundances rather than densities: 
 
 \begin{align}
 \frac{Y_{Z,I+1}}{Y_{Z,I}}  = \frac{2}{\rho N_A * Y_{e,tot}*f}  \left(\frac{G_{Z,I+1}}{G_{Z,I}}\right) \left(\frac{m_e k_b T}{2\pi\hbar^2}\right)^\frac{3}{2} \scalebox{1.3} e^{\left(\frac{\displaystyle -\chi_i}{\displaystyle k_b T}\right)}  
@@ -346,8 +324,6 @@ $$func(T,\thinspace p,\thinspace Y_{e,free},\thinspace [\chi_i],\thinspace Y_Z)$
 
 While these equations are correct, they result in overflow and underflow issues when graphing the abundances at high temperatures/early times. In other words, there is a normalization issue. Therefore, instead of altering the ionization state each time $g_m$ is calculated, we focus on just one ionization state at a time and normalize with this one state only. 
 
-\pagebreak
-
 Rewrite the expression  $\thinspace \displaystyle \prod_{m=0}^{I - 1} g_m$ as $h_I$, which is a function of $T,\thinspace p,\thinspace Y_{e,free}$. \\
 
 As a result, we see that $Y_{Z,I} = h_I  Y_{Z,0}$. Now say another ionization state j is chosen, thus $Y_{Z,J} = h_J  Y_{Z,0}$. \\
@@ -366,6 +342,44 @@ Y_{Z,J} = \frac{Y_Z}{\displaystyle \sum_{I=0}^{Z} \frac{h_I}{h_J}}
 The above equation follows the same structure as equation (15). In fact, they are identical for $J=$0. The main difference is that equation (15) utilizes a constant $h_J$, indicating the calculation is normalized only by the $h_I$ in question, which is $h_J$. This helps solve overflow and underflow issues for early times/high temperatures. \\
 
 Equation (16) is useful in finding the electron fraction and the charge state abundances for each time step. To do these calculations, only Samarium since our data and abundance patterns were compared to \textbf{fontes2017linesmeared} paper. Two elements, Sm and Eu, were then used in a multiple element mixture calculation. Once this was checked for validity. This was done by ensuring the abundance pattern was the same shape as figure 11 and ensuring that the sum of the charge state abundances never exceeded Skynet's elemental abundances values. With this checked, the abundance function, which requires user input for the number of elements they want, was constructed. 
+
+
+
+
+\subsection{Charge State Abundance Evolution}
+
+\indent This work requires us to know the charge state abundance values of each lanthanide or elements in the mixture. The reason behind this goal is because the lanthanides, at different temperatures and times, are found in a variety of charge states. Since these atoms ultimately emit the photons that make up the opacity curve and later the kilonova light curve, tracking the abundance of each type of atom in the merger mixture is necessary for accurately modeling the light curve. In other words, knowing these ionization state abundance values would allow us to develop an accurate opacity curve, which is later combined with photon transport calculations to eventually make the kilonova light curve.\\ 
+
+To actually calculate these abundance values, we first have to start off with Skynet's outputs. Skynet provides the temperature, density, and isotopic abundances vs time. The temperature has been evolved as outlined in section 2.2 while the isotopic abundances are summed together to form the elemental abundances for each element. The electron fraction vs time is also provided by Skynet, but to calculate the $Y_{e,free}$ portion of the $Y_{e,tot}$, we used the bisection method in the saha python class as outlined by the pseudo-code below. The other part of the Ye, the $Y_{e,bound}$, is calculated in the latter part of section 2.3 via calculating the abundance of each charge state. With all these values and the ionization potentials of each lanthanides' various charge states, the Saha equation can be utilized to find all the ionization state abundances present. To do so, we use the abundance ratio on the left side of the Saha equation to our advantage. Since the equation relates two proximate charge state abundances, it is possible to calculate one ionization state abundance using the other value. Extending this logic and the fact that all the charge state abundances sum up to the elemental abundances provided by Skynet, we can write an equation that starts with the neutral abundance and calculate any desired abundance value. \\
+
+\noindent{\normalsize{\textbf{Pseudo Code}}}\\
+Basic Premise: We want to set up a way to calculate the electron fraction by considering the charge neutrality present in the merger material. With this, we guess some low and high values for a constant $Y_{e,free}$ and plug them into the bisection method. Then, using the bisection method, we find the optimal $Y_{e,free}$ for when a zero crossing occurs. Using this true value for $Y_{e,free}$, we then plug this into a function that returns all ionization
+state abundances for the elements of interest. 
+
+\begin{lstlisting}[language=Python]
+			
+Bisection Code: #Note all Ye guesses are in log space for convenience
+
+Guess Yef_high = 0 #Max Ye = 1 and log(1) = 0
+Guess Yef_low = neg 50 # Any significantly low lnYef will work
+
+if (Yef_high * Yef_low < 0): #Ensure parity are different to do bisection
+	for i in range(number of iterations desired):
+		mid = avg(high + low)
+		check mid*high and mid*low 
+		#Do check by multiplying values and finding the sign of each.
+		set new low or high depending on any sign changes		
+	Ye_free = avg(final_Yef_low + final_Yef_high) #gives final Yef
+	
+\end{lstlisting}
+
+\vspace{.5 cm}
+
+
+While trying to implement this logic, some challenges did arise. For one, calculating both parts of the electron fraction was difficult, especially since the electron fraction calculation outlined in section 2.3 does require some charge state abundance values in the first place. This issue was solved by developing a self-consistent solution in which we first assumed the $Y_{e,free}$ value, calculate the charge state abundance values using this $Y_{e,free}$ value, and then calculate the density of electrons present by assuming charge neutrality in the mixture. This process was done for two $Y_{e,free}$ values in order to perform a bisection to find the actual free electron fraction value. There were also issues where the normalization of these charge state abundances was not possible due to underflow/overflow of the abundance values at early times. To solve this issue, we decided to calculate the abundance values by choosing one state to normalize with instead of normalizing with all the states present. This allowed us to isolate the calculations such that we did not need to always rely on the abundance values of the nearly neutral charge states to calculate the nearly ionized states' abundances. The last major issue came from the ionization potential values. Due to the complexity of the lanthanides, most experimentally determined ionization potentials for the charge states were unavailable. As a result, we had to rely on the NIST database's values, some of which were experimental while others were based on atomic models. One such atomic model scheme is outlined here (\url{https://www.sciencedirect.com/science/article/abs/pii/S0092640X03000846}).  \\
+
+There are various results that arose from analyzing these ionization state abundances. As seen in figure 11, Sm and all other elements undergo numerous transitions between the beginning of the merger and the end of the temperature-time evolution at approximately $10^6$ seconds. For the low temperatures ($\approx 1 - 10^{-3} \mathrm{eV}$), there are only 3 to 4 transitions, and there are instances where two charge states could exist and co-dominate. This is also seen on a larger scale with figure 12, which plots the summed ionization state abundance values of all the lanthanides across time. For late times, only the neutral, +1, and +2 charge states become dominant and visible in the ejecta material. A version where the neutral and +1 charge state abundances are broken down by element are shown with figures 13 and 14, respectively. In each of these two plots, Dy usually has the highest abundance present, but all the lanthanides are within the same order of magnitude.
+
 
 \begin{figure}[h!]
   \includegraphics[scale = .75]{samarium.png}
@@ -408,7 +422,7 @@ This avenue was approached in the first place since having the same electron con
 \begin{figure}[h!]
   \includegraphics[scale = .6]{isoelectronic.png}
   \centering
-  \caption{Plot of the number of contributing isoelectronic states present in the merger material for the lanthanides. Note how, for late times/ low temperatures, there are 14 unique isoelectronic states, one for each lanthanide present. This again shows that using electron configurations is not viable. }
+  \caption{Plot of the number of contributing isoelectronic states present in the merger material for the lanthanides. Note that for late times/ low temperatures, there are 14 unique isoelectronic states, one for each lanthanide present. This again shows that using electron configurations is not viable. }
 \end{figure}
 
 
@@ -458,68 +472,49 @@ After these $Y_e$ values were input into Skynet, we were able to add up all the 
 
 \subsection{Defining a $Y_e$ Cutoff}
 
-After a certain $Y_e$, the abundance starts to drop drastically, as seen by figures 18 through 120. This allows one to define a $Y_e$ cutoff such that any $Y_e$ above that value would result in elemental abundances too insignificant to make a noticeable difference to the final light curve. In texts such as Kasen and Barnes 2013, this abundance threshold is $\approx 10^{-5}$.  
+After a certain $Y_e$, the abundance starts to drop drastically, as seen by figures 18 through 20. Regardless of the element or the abundance, the lanthanide abundance values seem to drop whenever we input into Skynet an electron fraction of $Y_e$ = .25 or higher. Figure 20 also indicates this dropoff occurs for abundance values found at $t = \mathrm{1 \hspace{1 mm} day}$. This all allows one to define a $Y_e$ cutoff such that any $Y_e$ above that value would result in elemental abundances too insignificant to make a noticeable difference to the final light curve. In texts such as Kasen and Barnes 2013, this abundance threshold is $\approx 10^{-5}$.  
 Look into the ipynb called “charge states abundances\_various\_Ye” for numerous graphics and implementations. Some studies are also done in the ipynb “Official \_ abundance \_ calculation \_ multiple \_ Ye \_ interpolated”. 
 
+\section{Conclusions and Future Work}
 
-\subsection{Studies of the $Y_e$ Cutoff vs. Skynet Parameters}
 
-While $Y_e$ is certainly the most important Skynet parameter in altering final abundance patterns, the other parameters, notably the entropy and dynamical timescale (term used to describe how density evolves over time), must also be studied. The starting entropy and dynamical timescale can and will affect how the temperature and density values change over time, which are values necessary for ionization state abundance calculations detailed in the Saha and Saha \_ mult classes. 
-Thus, we plan on studying into how altering the entropy and dynamical timescale values would change the $Y_e$ cutoff needed for abundances. In the end, there will be a graphic depicting $Y_e$ as a function of these variables, and certain points or lines in a 3D graph that would correspond to critical Ye values. From this, a collection of starting Skynet parameters can be generated such that a critical $Y_e$ is always reached. By doing this, we would know which values for starting entropy and dynamical timescale have the largest impact on the $Y_e$, which ultimately indicates the impact these values can have on the abundance values. 
 
-\section{Future Work}
 
-\subsection{Neodymium and Samarium Abundance Dependence on Skynet Parameters}
 
-Fontes et al.'s recent paper \url{(https://arxiv.org/pdf/1904.13298.pdf)} discusses how, based on their kilonova models, the kilonova light curve is most sensitive to Neodymium while the rest of the lanthanides present can be modeled with just Samarium. In fact, Nd is so important that its opacity is different by one order of magnitude compared to Sm, which is supposed to be the fiducial element of the lanthanides. 
-
-With this information in mind, it is important to see how these abundances are affected by Skynet parameters. Certain electron fractions or dynamical timescales, for example, can result in the largest Nd abundances, which means the kilonova light curve would be impacted. By compiling how the Nd and Sm abundance varies based on initial inputs, we can later figure out what the kilonova light curve will look like. 
-
-\subsection{Atomic Structure Codes}
-
-The leading groups that model kilonova light curves all use different atomic models to generate ionization potentials and atomic energy levels. With this, their associated opacities and spectra can be calculated.  These groups include Tanaka et al.\url{(https://iopscience.iop.org/article/10.3847/1538-4357/aaa0cb/meta)} , Metzger \url{(https://link.springer.com/content/pdf/10.1007/s41114-019-0024-0.pdf)}, and Kasen and Barnes et al. \url{(https://arxiv.org/pdf/1303.5787.pdf)} .
-
-\subsection{Radiative Transfer Codes}
-
-In order to generate kilonova light curves, we must track how the photons propagate through the merger material. Tracking their energy losses, trajectories, and interactions are vital to understanding which photons end up being observed outside the merger mixture using our telescopes. For the sake of convenience and error checking, we will use only the radiative transfer codes from Kasen and Barnes out of the three possible groups' codes.
-
-\subsection{Generating Our Own Light Curves}
-
-So to generate our own light curves, the full procedure is to use ionization potentials from certain atomic models in our saha equation calculations to get full ionization state abundances for late times in the merger material. Once that is done, we have to consider the opacity of the material due to the various unique atoms involved. Coupling this spectra with the abundance will indicate which photons are present and how strong it is; from there, we can take these photons and run them through a radiative transfer code to simulate photon propagation through the material. The end result, which is the culmination of all the photons being observed from the merger, is the kilonova light curve.
-This is outlined in texts such as \url{(https://arxiv.org/pdf/1702.02990.pdf)}
-
-\subsection{Comparing Results}
-
-Three unique kilonova light curves will be generated, each one differing only by the atomic structure calculations used in finding the ionization potentials and energy levels. These light curves will then be compared amongst each other and to the one from AT2017gfo. If the three curves differ by a significant amount at certain bands (wavelengths), then it is indicative that the difference in the atomic structure models are large enough to be impactful. If this is the case, we can study what atoms' structure calculations vary the most amongst these codes.  
-
-\subsection{Experiments to Finding Key Atomic Data}
-
-The experiment would be designed to find the various energy levels and transitions of a lanthanide at various charge states. Since most charge states are not relevant at late times (around 1 day after merger), it is best to focus solely on the first 3 to 4 charge states only. Having an experiment done would eliminate all major uncertainty between the models as we could benchmark each atomic structure code with the experimental data.
-
-\section{Conclusion}
 
 
 \subsection{Main Results from Charge State Abundance Studies}
 
 Using Skynet, a nuclear reaction network code, and the Saha equation, it is possible to model the abundances of elements and their charge states formed in neutron star mergers. For late times, the r-process has stopped, preventing any large changes in elemental abundances. As for the charge state abundances, their patterns show distinct peaks and troughs consistent with the ionization potentials of each element and each charge state, as indicated by figures 11 and 12. 
 In particular, for late times, there are little to no transitions in the dominant charge state present due to the rather low temperatures. On a time scale of a day after the merger most ionization states are not present besides the +3 to neutral states. 
-We learned that isoelectronic states cannot be used to simplify the spectral analysis since elements with the same number of electrons have differing electronic configurations. 
+We learned that isoelectronic states cannot be used to simplify the spectral analysis since elements with the same number of electrons have differing electronic configurations. \\
 
-\subsection{Main Results from Isotopic Abundance Studies}
-
-%WHILE THIS SECTION IS NOT FULLY FINISHED AS THE RESEARCH IS NOT FINISHED, IT WILL SOON BE FILLED.
+This current work fits into a section of published literature. The first one involves Dr. Chris Fontes \url{(https://arxiv.org/abs/1904.13298)} work on lanthanide opacities and light curves. Their group’s research has indicated that Neodymium and Samarium are key elements present in the material, so having a sense of what affects their abundances, such as initial conditions and atomic data, is crucial to better modeling these light curves. Our work on the charge state and isotopic abundance studies will show this.
 
 
-The electron fraction is the density of electrons in the merger material relative to the total baryonic density. The electron fraction consists of the free and bound electrons, and factors such as neutrino irradiation can lower the number of neutrons present and increase the electron fraction. Thus, it is imperative to figure out what are the appropriate input parameters into Skynet-electron fraction, entropy, and dynamical timescale- that would result in drastic changes to the abundances. In other words, what are the cutoffs after which the abundance values drop below a certain threshold, where the threshold helps determine its significance to the material and its light curve. 
+\subsection{Future work: Neodymium and Samarium Abundance Dependence on Skynet Parameters}
 
-\subsection{How Does This Work Fit Into Published Literature}
+Fontes et al.'s recent paper \url{(https://arxiv.org/pdf/1904.13298.pdf)} discusses how, based on their kilonova models, the kilonova light curve is most sensitive to Neodymium while the rest of the lanthanides present can be modeled with just Samarium. In fact, Nd is so important that its opacity is different by one order of magnitude compared to Sm, which is supposed to be the fiducial element of the lanthanides. 
 
-This current work fits into two sections of published literature. The first one involves Dr. Chris Fontes \url{(https://arxiv.org/abs/1904.13298)} work on lanthanide opacities and light curves. Their group’s research has indicated that Neodymium and Samarium are key elements present in the material, so having a sense of what affects their abundances, such as initial conditions and atomic data, is crucial to better modeling these light curves. Our work on the charge state and isotopic abundance studies will show this.
+With this information in mind, it is important to see how these abundances are affected by Skynet parameters. Certain electron fractions or dynamical timescales, for example, can result in the largest Nd abundances, which means the kilonova light curve would be impacted. By compiling how the Nd and Sm abundance varies based on initial inputs, we can later figure out what the kilonova light curve will look like. 
 
-\subsection{Outlook- How Can This Work Be Extended and Improved Upon?}
 
-Our work can be extended by removing uncertainty in the atomic models used by these various kilonova groups. Since our work will figure out what differs in these groups as well as attempt to study key charge states in a lab setting, our work will bring more consistency to these models and determine whether the varying models have any impact at all. This will be done through using the atomic models, charge state abundances, radiative transport, and opacity/light curve calculations. 
-The work can be improved by cleaning up the code, making it more user friendly and mutable, and accessible to more coding languages. We should also check our abundance calculations with numerous groups instead of just Dr. Fontes’. Finally, adding these codes as a module to Skynet would be rather beneficial in having one full code that starts with nuclear data and the r-process and uses atomic data to fully generate a light curve
+\subsection{Future work: Studies of the $Y_e$ Cutoff vs. Skynet Parameters}
+
+While $Y_e$ is certainly the most important Skynet parameter in altering final abundance patterns, the other parameters, notably the entropy and dynamical timescale (term used to describe how density evolves over time), must also be studied. The starting entropy and dynamical timescale can and will affect how the temperature and density values change over time, which are values necessary for ionization state abundance calculations detailed in the Saha and Saha \_ mult classes. 
+Thus, we plan on studying into how altering the entropy and dynamical timescale values would change the $Y_e$ cutoff needed for abundances. In the end, there will be a graphic depicting $Y_e$ as a function of these variables, and certain points or lines in a 3D graph that would correspond to critical Ye values. From this, a collection of starting Skynet parameters can be generated such that a critical $Y_e$ is always reached. By doing this, we would know which values for starting entropy and dynamical timescale have the largest impact on the $Y_e$, which ultimately indicates the impact these values can have on the abundance values. 
+
+
+\subsection{Future work: Atomic Structure Codes and Beyond}
+
+The leading groups that model kilonova light curves all use different atomic models to generate ionization potentials and atomic energy levels. With this, their associated opacities and spectra can be calculated.  These groups include Tanaka et al.\url{(https://iopscience.iop.org/article/10.3847/1538-4357/\\aaa0cb/meta)} , Metzger \url{(https://link.springer.com/content/pdf/10.1007/s41114-019-0024-0.pdf)}, and Kasen and Barnes et al. \url{(https://arxiv.org/pdf/1303.5787.pdf)}. \\
+
+In order to generate kilonova light curves, we must track how the photons propagate through the merger material. Tracking their energy losses, trajectories, and interactions are vital to understanding which photons end up being observed outside the merger mixture using our telescopes. For the sake of convenience and error checking, we will use only the radiative transfer codes from Kasen and Barnes out of the three possible groups' codes.\\
+
+Three unique kilonova light curves will be generated, each one differing only by the atomic structure calculations used in finding the ionization potentials and energy levels. These light curves will then be compared amongst each other and to the one from AT2017gfo. If the three curves differ by a significant amount at certain bands (wavelengths), then it is indicative that the difference in the atomic structure models are large enough to be impactful. If this is the case, we can study what atoms' structure calculations vary the most amongst these codes.\\  
+
+The experiment would be designed to find the various energy levels and transitions of a lanthanide at various charge states. Since most charge states are not relevant at late times (around 1 day after merger), it is best to focus solely on the first 3 to 4 charge states only. Having an experiment done would eliminate all major uncertainty between the models as we could benchmark each atomic structure code with the experimental data.
+
 
 \bibliography{references_technote.bib}
 
