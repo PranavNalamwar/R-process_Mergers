@@ -20,3 +20,4 @@
 \contentsline {subsection}{\numberline {4.2}Future work: Neodymium and Samarium Abundance Dependence on Skynet Parameters}{22}
 \contentsline {subsection}{\numberline {4.3}Future work: Studies of the $Y_e$ Cutoff vs. Skynet Parameters}{23}
 \contentsline {subsection}{\numberline {4.4}Future work: Atomic Structure Codes and Beyond}{23}
+\contentsline {section}{References}{23}

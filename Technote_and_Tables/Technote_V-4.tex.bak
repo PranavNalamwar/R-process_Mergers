@@ -12,10 +12,13 @@
 \usepackage{perpage}
 \usepackage{float}
 \MakePerPage{footnote}
-\bibliographystyle{apacite}
 \usepackage[font=scriptsize,labelfont=bf]{caption}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \setlength{\parindent}{0pt} %indent set to 0 for now due to convenience and order
+
+\usepackage[superscript,biblabel]{cite}
+\makeatletter \renewcommand{\@citess}[1]{\textsuperscript{\,[#1]}} \makeatother %for brackets
+\bibliographystyle{ieeetran}
 
 \begin{document}
 
@@ -26,7 +29,7 @@
 \maketitle
 
 \begin{abstract}
-The rapid-neutron capture process, or r-process, is behind the creation of the heaviest elements of the universe, such as the lanthanides. Neutron star mergers are the currently agreed upon site for the r-process to dominate in. Based on recent studies (CITE KASEN), lanthanide abundances formed in the merger affect kilonovae light curves, where a kilonova is the culmination of the photons released by the merger material. Currently, there is an insufficient amount of energy level information available for the lanthanides, so we wanted to determine the significance of accurate atomic data on kilonova light curve calculations. To approach this, elemental abundances from Skynet, a nuclear reaction network code, was combined with NIST data on experimental and theoretical energy levels to calculate charge state abundance values via the Saha equation. The resulting charge state abundance values were successfully generated using NIST data, indicating any atomic data can be used for the calculations. These abundance patterns depict the transitions between dominating charge states, showing the importance of the energy levels. Thus, it is possible to compare the atomic models via comparing the resulting charge state abundance patterns and kilonovae light curves. 
+The rapid-neutron capture process, or r-process, is behind the creation of the heaviest elements of the universe, such as the lanthanides. Neutron star mergers are the currently agreed upon site for the r-process to dominate in. Based on recent studies \cite{2017Natur.551...80K}, lanthanide abundances formed in the merger affect kilonovae light curves, where a kilonova is the culmination of the photons released by the merger material. Currently, there is an insufficient amount of energy level information available for the lanthanides, so we wanted to determine the significance of accurate atomic data on kilonova light curve calculations. To approach this, elemental abundances from Skynet, a nuclear reaction network code, was combined with NIST data on experimental and theoretical energy levels to calculate charge state abundance values via the Saha equation. The resulting charge state abundance values were successfully generated using NIST data, indicating any atomic data can be used for the calculations. These abundance patterns depict the transitions between dominating charge states, showing the importance of the energy levels. Thus, it is possible to compare the atomic models via comparing the resulting charge state abundance patterns and kilonovae light curves. 
 
 \end{abstract}
 
@@ -494,11 +497,6 @@ Three unique kilonova light curves will be generated, each one differing only by
 
 An experiment would be designed to find the various energy levels and transitions of a lanthanide at various charge states. Since most charge states are not relevant at late times (around 1 day after merger), it is best to focus solely on the first 3 to 4 charge states only. An experiment could benchmark each atomic structure code with the experimental data.
 
-
-\bibliography{references_technote.bib}
-
-%\cite{johnson_2017}
-
-
+%\bibliography{references_technote}
 \end{document}
 
