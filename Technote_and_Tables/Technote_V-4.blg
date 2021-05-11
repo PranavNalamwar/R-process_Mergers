@@ -4,5 +4,10 @@ Database file #1: references_technote.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Name 17 in "{Doctor}, Z. and {Kessler}, R. and {Herner}, K. and {Palmese}, A. and {Soares-Santos}, M. and {Annis}, J. and {Brout}, D. and {Holz}, D.~E. and {Sako}, M. and {Rest}, A. and {Cowperthwaite}, P. and {Berger}, E. and {Foley}, R.~J. and {Conselice}, C.~J. and {Gill}, M.~S.~S. and {Allam}, S. and {Balbinot}, and {DES Collaboration}" has a comma at the end for entry Doctor_2019
+while executing---line 2403 of file ieeetran.bst
+Warning--empty title in Kramida_2020
+Warning--empty journal in Kramida_2020
 
 Done.
+(There was 1 error message)
