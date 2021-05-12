@@ -48,7 +48,7 @@ Based on numerous observations of various stars, there are several types of star
 
 \begin{figure}[h!]
   \includegraphics[width=1\textwidth]{periodic_table.png}
-  \caption{Periodic table depicting which elements are created by certain nucleosynthesis events, including neutron star mergers \cite{Johnson_2017} .}
+  \caption{Periodic table depicting which elements are created by certain nucleosynthesis events, including neutron star mergers \cite{Johnson_2017}.}
 \end{figure}
 
 \subsection{The r-process}
@@ -87,7 +87,7 @@ Specifically, it appears that a kilonova can be more "red" or "blue" depending o
   \caption{ Kilonova models for light curve \cite{Kasen_Metzger_Barnes_2017} (left). The graphic indicates the full bolometric luminosity vs days since merger for 10 days time. The various colors represent the lanthanide mass fraction present in the merger material, thus indicating that the lanthanide abundance can affect light curve on visible levels. The spectrum \cite{Kasen_Metzger_Barnes_2017} (right) shows the spectra observed from the merger at 4.5 days. Note that higher lanthanide fractions tend to shift the spectrum towards the IR.}
 \end{figure}
 
-While the information stated above had been known prior to the kilonova observation  AT2017gfo, several insights have been made as a result of studying this event. For one, AT2017gfo’s key features, especially its luminosity consistent to a blackbody, are all in agreement with predictions for kilonovae \cite{Kasen_Metzger_Barnes_2017} . In a time less than 2 days after the merger, the emission is primarily dominated by the lighter r-process elements(bluer), but after 5 days, the emission is now dominated by the heavier r-process elements(redder). The infrared spectroscopy of the kilonovae provides even more compelling evidence for the creation of heavier elements, an idea indicated by the predictions for the spectral peaks of the merger matching observations. It was also found through observations that the decline of the luminosities in the g,r, and i bands of the light curve is unlike any other observations as they were much more rapid than that of supernovae \cite{Arcavi_2017}. Specific observations include finding that the optical and infrared spectra agree with the fact that the early ejecta were mainly light r-process elements. There is a second spectrum suggesting Cs I and Te I could be possible light r-process elements that were created.Also, other potential candidates for forming in the merger would be neutral and singly ionized Xr and Sb I. The light curves and the spectra from this kilonovae indicate the ejecta is of high velocity, relatively low mass, and powered by a source that has similar timescales to the r-process \cite{Smartt_2017} . [15] goes through the procedure for spectroscopic identification of many r-process elements in more detail \cite{Pian_2017} .
+While the information stated above had been known prior to the kilonova observation  AT2017gfo, several insights have been made as a result of studying this event. For one, AT2017gfo’s key features, especially its luminosity consistent to a blackbody, are all in agreement with predictions for kilonovae \cite{Kasen_Metzger_Barnes_2017}. In a time less than 2 days after the merger, the emission is primarily dominated by the lighter r-process elements(bluer), but after 5 days, the emission is now dominated by the heavier r-process elements(redder). The infrared spectroscopy of the kilonovae provides even more compelling evidence for the creation of heavier elements, an idea indicated by the predictions for the spectral peaks of the merger matching observations. It was also found through observations that the decline of the luminosities in the g,r, and i bands of the light curve is unlike any other observations as they were much more rapid than that of supernovae \cite{Arcavi_2017}. Specific observations include finding that the optical and infrared spectra agree with the fact that the early ejecta were mainly light r-process elements. There is a second spectrum suggesting Cs I and Te I could be possible light r-process elements that were created.Also, other potential candidates for forming in the merger would be neutral and singly ionized Xr and Sb I. The light curves and the spectra from this kilonovae indicate the ejecta is of high velocity, relatively low mass, and powered by a source that has similar timescales to the r-process \cite{Smartt_2017} . [15] goes through the procedure for spectroscopic identification of many r-process elements in more detail \cite{Pian_2017} .
 
 \subsection{GW170817 Event and AT2017gfo Event}
 
@@ -248,8 +248,7 @@ We can further simplify our above expression by removing the density. Since our 
 	\dfrac{dT}{dt} =  \dfrac{ -\left( \dfrac{4aT^4}{3 \rho_0} \left (\dfrac{t}{t_0} \right)^3 + \dfrac{k_b T \tilde{Y}}{m_p} \right) \dfrac{3}{t} - \dfrac{3 k_b T \tilde{Y}}{2 m_p} \dfrac{\dot{\tilde{Y}}}{\tilde{Y}} + \dot{q}_{nuc} } {  \left( \dfrac{4 a T^3}{\rho_0} \dfrac{t}{t_0}^3 + \dfrac{3 k_b \tilde{Y}}{2 m_p}\right) }
 \end{align}
 
-The above equation is the solution since it was assumed that the density, and therefore its derivative, were homogenous and homologous. Homologous means the material, to first order at least, has the same properties such as temperature and density throughout.  Thus, we now have $\dot{T}$ is a function of $(T,t,\tilde{Y}, \dot{\tilde{Y}},\dot{q}_{nuc})$, which are all outputs of Skynet, except for $\dot{\tilde{Y}}$, which is calculated from taking the derivative of the abundances outputted. $T$ is in units of $\mathrm{GK}$, $t$ is in $\mathrm{sec}$, $\tilde{Y}$ is unitless, $\dot{\tilde{Y}}$ is in units of $\dfrac{1}{\mathrm{sec}}$, $\dot{q}_{\mathrm{nuc}}$ is initially in $\dfrac{\mathrm{erg}}{\mathrm{sec \cdot g}}$ but later converted to $\dfrac{J}{\mathrm{kg \cdot sec}}$, and $\rho_0$ is initially in $\dfrac{\mathrm{g}}{{\mathrm{cm}}^3}$ but is later turned into $\dfrac{\mathrm{kg}}{\mathrm{m}^3}$. The resulting temperature-time plot from solving the ODE outlined in equation 12 is shown in figure 10. Relative to figures 8 and 9, there is a deviation of less than one order of magnitude. Nonetheless, this deviation does warrant calculating the charge state abundance values using this new temperature-time relationship. \\
-
+The above equation is the solution since it was assumed that the density, and therefore its derivative, were homogenous and homologous. Homologous means the material, to first order at least, has the same properties such as temperature and density throughout.  Thus, we now have $\dot{T}$ is a function of $(T,t,\tilde{Y}, \dot{\tilde{Y}},\dot{q}_{nuc})$, which are all outputs of Skynet, except for $\dot{\tilde{Y}}$, which is calculated from taking the derivative of the abundances outputted. $T$ is in units of $\mathrm{GK}$, $t$ is in $\mathrm{sec}$, $\tilde{Y}$ is unitless, $\dot{\tilde{Y}}$ is in units of $\dfrac{1}{\mathrm{sec}}$, $\dot{q}_{\mathrm{nuc}}$ is initially in $\dfrac{\mathrm{erg}}{\mathrm{sec \cdot g}}$ but later converted to $\dfrac{J}{\mathrm{kg \cdot sec}}$, and $\rho_0$ is initially in $\dfrac{\mathrm{g}}{{\mathrm{cm}}^3}$ but is later turned into $\dfrac{\mathrm{kg}}{\mathrm{m}^3}$. The resulting temperature-time plot from solving the ODE outlined in equation 12 is shown in figure 10. Relative to figures 8 and 9, there is a deviation of less than one order of magnitude. Nonetheless, this deviation does warrant calculating the charge state abundance values using this new temperature-time relationship. 
 
 \begin{figure}[h!]
   \includegraphics[scale = .7]{linear_temp.png}
@@ -268,8 +267,6 @@ The above equation is the solution since it was assumed that the density, and th
   \centering
   \caption{Plot of temperature vs time for an ejecta with a radiation, photon gas, and baryon component. For the same dataset as the other temperature evolution models, this new extrapolation varies slightly relative to the radiation-only model. In other words, the orange line varies less than an order of magnitude in temperature relative to the original extrapolation. }
 \end{figure} 
-
-\pagebreak
 
 \subsection{Solving the Saha Equation}
 
@@ -419,7 +416,7 @@ This avenue was approached in the first place since having the same electron con
 
 \begin{figure}[h!]
   \includegraphics[scale = .65]{configurations.png}
-  \caption{Table indicating the most likely electron configurations for the first ten charge states for each lanthanide. The most likely configuration was found on the NIST database.}
+  \caption{Table indicating the most likely electron configurations for the first ten charge states for each lanthanide. The most likely configuration was found on the NIST database \cite{Kramida_2020}.}
 \end{figure}
 
 \begin{figure}[h!]
@@ -447,7 +444,7 @@ The electron fraction is the density of electrons in the material relative to th
 
 \subsection{Isotopic Abundances vs $Y_e$}
 
-A range of $Y_e$ from .01 to .50 was used to test how the resulting isotopic and elemental abundances varied between data sets. This was done especially since the charge state abundances that are measured at late times for when the kilonova should peak(on the order of the 1st day after the merger) could be affected. This $Y_e$ range was set by Luke Roberts but also suggested by Kasen and Barnes 2013 \url{(https://arxiv.org/pdf/1303.5787.pdf)}.
+A range of $Y_e$ from .01 to .50 was used to test how the resulting isotopic and elemental abundances varied between data sets. This was done especially since the charge state abundances that are measured at late times for when the kilonova should peak(on the order of the 1st day after the merger) could be affected. This $Y_e$ range was set by Luke Roberts but also suggested Kasen and Barnes in 2013 \cite{Barnes_Kasen_2013} .
 After these $Y_e$ values were input into Skynet, we were able to add up all the isotopic abundances together and compare what the abundance value was at $t = 1$ day, for example, amongst various starting $Y_e$ data files. We determined the dependence of the elemental abundances on the initial $Y_e$. Knowing this is crucial to modeling kilonova since the $Y_e$ values drastically impact the abundance values, which in turn affects the spectra involved.
 
 
